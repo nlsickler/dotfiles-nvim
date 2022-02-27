@@ -1,0 +1,172 @@
+" ##################################
+" # Built-in VIM Settings
+" ##################################
+
+set nocompatible
+set nomodeline
+set backspace=indent,eol,start	" more powerful backspacing
+set encoding=UTF-8 " Necessary for ryanoasis/vim-devicons
+
+filetype indent plugin on
+syntax on
+
+set ignorecase
+set smartcase
+set number relativenumber
+
+set nowrap " # Prevent wrapping
+set linebreak " # Wrap on words if `:set wrap` is called
+
+"Indentation defaults
+set shiftwidth=4  
+set softtabstop=4
+set expandtab
+
+set hlsearch
+set mouse=a
+set ruler
+set splitbelow splitright " Opens new splits to the right or below
+
+au BufReadPost *.thor set syntax=ruby
+"autocmd BufNewFile,BufRead *.json set ft=javascript
+
+" ##################################
+" # vim-plug Installation
+" ##################################
+
+let vimplugPath = "~/.config/nvim/plugged"
+
+" # Pathing, etc. for Windows machines
+if has("win64") || has("win32")
+    let vimplugPath = "C:/.vim/plugged"
+    if getcwd() =~ '.*system32.*'
+        execute 'cd' "C:/"
+    endif
+
+    if empty(glob("C:/.vim/autoload/plug.vim"))
+        silent !curl -fLo C:/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+else " #Pathing, etc. for Linux/Mac
+    if empty(glob("~/.config/nvim/autoload/plug.vim"))
+        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+endif
+
+" Sets vimdiff to use a histogram algoritm for nicer diffs
+if has('nvim-0.3.2') || has("patch-8.1.0360")
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
+
+" ##################################
+" # Plugs
+" ##################################
+"
+call plug#begin(vimplugPath)
+
+" # Basics
+
+Plug 'scrooloose/nerdtree' " File explorer
+Plug 'ryanoasis/vim-devicons' " Adds git icons to NERDTree, lightline, vim-startify, etc
+Plug 'itchyny/lightline.vim' " Powerline/Airline alterative for bottom status bar
+Plug 'tpope/vim-sensible' " Some general set calls to configure vim (mostly `set`s)
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy File Finder
+Plug 'mileszs/ack.vim' " Ack interface for recursively searching Vim's cd - currently configured to use Ag (SilverSearcher)
+Plug 'mhinz/vim-startify'  " A default 'start' screen for git
+Plug 'nvim-lua/plenary.nvim' " Dependency for telescope.nvim
+Plug 'nvim-telescope/telescope.nvim' " Fuzzy search for nvim
+
+" # Git
+Plug 'airblade/vim-gitgutter' " Adds git information to gutter
+Plug 'tpope/vim-fugitive'  " Git client inside vim
+Plug 'tpope/vim-rhubarb' " Adds the Hub integration to Git for GitHub repos
+
+" # Programming
+Plug 'majutsushi/tagbar' " Provides the method breakdown in a separate bar for navigation, etc.
+Plug 'w0rp/ale' " Linter
+Plug 'Chiel92/vim-autoformat' " Allows specifying a format tool
+Plug 'OmniSharp/omnisharp-vim' "CSharp language support
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Add language servers and general programming info into vim
+
+" # Color Schemes
+Plug 'nlsickler/vim-colors-pencil' " Customized color scheme
+Plug 'flazz/vim-colorschemes' " Lots of color schemes
+
+" # Plugins in test
+Plug 'psliwka/vim-smoothie' " Scrolling enhancements
+
+call plug#end()
+
+" ##################################
+" # Plug Configuration
+" ##################################
+
+" # ACK.vim config for ag and rg
+
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
+if executable('rg')
+    let g:ackprg = 'rg --vimgrep --no-heading'
+endif
+
+" # vim-autoformatter Configuration
+" let g:formatterpath = ['/some/path/to/a/folder', '/home/superman/formatters'] 
+
+
+" # NERDTree Configuration
+let NERDTreeShowHidden=1
+
+autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif " Automatically opens NERDTree if no file specified
+
+
+" # CoC Configuration
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-powershell' ]
+
+" ##################################
+" # MAPS
+" ##################################
+
+let mapleader = " "
+
+nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
+" # Plugin remaps
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Telescope
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" CoC
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" vim-gitgutter
+nmap ghp <Plug>(GitGutterPreviewHunk)
+
+" ##################################
+" # Color Schemes
+" ##################################
+
+" colorscheme molokai_dark
+" colorscheme Monokai
+set background=dark
+colorscheme monokai-phoenix
