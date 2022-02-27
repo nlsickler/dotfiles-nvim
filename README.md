@@ -1,6 +1,6 @@
-# LUA based 
+# dotfiles-nvim
 
-An old copy of init.vim lives in this folder, but it shouldn't be used for newer versions of neovim (>= 0.5.0).
+An old copy of init.vim lives in this folder, but it shouldn't be used for newer versions of neovim (>= 0.5.0).  All configuration has been migrated to lua.
 
 ## Things to remember
 
@@ -20,4 +20,3 @@ Requires a download/install of the [necessary debug adapter](https://github.com/
 #### Audio Status
 
 Currently uses [spotify-tui](https://github.com/Rigellute/spotify-tui) to get status.  Required to be on the path (and needs to be configured with a developer account)
-
