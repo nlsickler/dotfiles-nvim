@@ -8,6 +8,6 @@ if impatientMod.loaded then
 end
 ]]
 
-require('opts') -- Load opts first due to dependencies on termguicolors
 require('plugins').loadPlugins() -- Load Packer config
+require('opts') -- Load opts first due to dependencies on termguicolors
 --require('mappings') -- Loading mappings has moved into lua/plugins/whichkey.lua
