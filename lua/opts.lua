@@ -58,7 +58,6 @@ vim.opt.virtualedit = 'block'
 -- Colorscheme
 vim.opt.background = 'dark'
 vim.g.tokyonight_style = 'night'
-vim.cmd [[colorscheme tokyonight ]]
 
 -- Help Tags: shell-powershell
 -- vim.cmd [[set shell=\"C:/Program\ Files/PowerShell/7/pwsh.exe\"]] -- This works but is machine specific
