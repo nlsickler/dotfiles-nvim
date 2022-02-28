@@ -44,7 +44,7 @@ M.loadPlugins = function()
     use 'neovim/nvim-lspconfig' -- Integrates with third party lanugage servers
     use { 'williamboman/nvim-lsp-installer', config = function() require('plugin.nvim-lsp-installer').config() end, after = 'nvim-cmp' } -- Installs LSPs
     use { 'stevearc/aerial.nvim', config = function() require('plugin.aerial').config() end, after = 'nvim-notify' } -- Symbol viewer
-    use 'p00f/nvim-ts-rainbow' -- Different colored closing brackets, etc.
+    use {'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter'} -- Different colored closing brackets, etc.
     use { 'windwp/nvim-autopairs', config = function() require('plugin.autopairs').config() end, after = 'nvim-notify' } -- Automically close parens, quotes in insert
     use { 'norcalli/nvim-colorizer.lua', config = function() require('plugin.colorizer').config() end, after = 'nvim-notify' } -- Changes background of color codes
     use { 'numToStr/Comment.nvim', config = function() require('plugin.comment').config() end, after = 'nvim-notify' }
