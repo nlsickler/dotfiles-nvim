@@ -26,7 +26,6 @@ M.loadPlugins = function()
     -- use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.nvim-tree').config() end, after = 'nvim-notify'}
     use 'ryanoasis/vim-devicons' -- Adds git icons to NERDTree, lightline, vim-startify, etc
     use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end, after = 'nvim-notify' } -- Powerline/Airline alterative for bottom status bar
-    -- use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify' }
     use {'noib3/nvim-cokeline', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.cokeline').config() end, after = 'nvim-notify' }
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
