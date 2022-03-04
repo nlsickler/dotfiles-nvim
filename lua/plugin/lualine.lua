@@ -12,16 +12,6 @@ M.config = function()
 
   if luaMod.loaded then
 
-    local function ts_status()
-      local tsMod = modLoader.loadModule('nvim-treesitter')
-
-      if not tsMod.loaded then
-        return
-      end
-
-      return tsMod.module.statusline(90)
-    end
-
     local function audio_status()
       if (os.time() - LL_audio_lastUpdate) > 10 then
         LL_audio_retry_interval = 10
@@ -39,6 +29,10 @@ M.config = function()
       end
 
       return LL_audio_lastValue
+    end
+
+    local function curr_time()
+      return os.date('%Y-%m-%d %H:%M:%S')
     end
 
     luaMod.module.setup {
@@ -59,15 +53,15 @@ M.config = function()
             path = 1,
             shorting_target = 64,}
         },
-        lualine_x = {ts_status, audio_status, 'encoding'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_x = { audio_status, 'encoding' },
+        lualine_y = {'location'},
+        lualine_z = { curr_time }
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {}
       },
