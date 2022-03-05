@@ -65,12 +65,12 @@ M.loadPlugins = function()
     -- Color Schemes
     use 'nlsickler/vim-colors-pencil' -- Customized color scheme
     use 'nlsickler/vim-monokai-pro'
-    use { 'nlsickler/tokyonight-custom', config = function() vim.cmd [[colorscheme tokyonight ]] end}
     use 'reewr/vim-monokai-phoenix'
     use 'tomasr/molokai'
     use 'NLKNguyen/papercolor-theme'
     use 'EdenEast/nightfox.nvim'
-    -- use { 'folke/tokyonight.nvim' }
+    use 'nlsickler/colorscheme-tweaks.nvim'
+    use { 'folke/tokyonight.nvim', config = function() require('plugin.tokyonight').config() end, after = 'colorscheme-tweaks.nvim'}
 
     -- # Plugins in test
 
