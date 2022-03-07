@@ -5,7 +5,6 @@ local M = {}
 M.config = function()
   local treesitterConf = mLoader.loadModule('nvim-treesitter.configs')
 
-  vim.notify('Loading treesitter configuration', 'info')
   if treesitterConf.loaded then
 
     -- Treesitter configuration
@@ -24,8 +23,8 @@ M.config = function()
         extended_mode = true,
         max_file_lines = nil,
       },
-      indent = { 
-        enable = true, 
+      indent = {
+        enable = true,
       },
     }
 

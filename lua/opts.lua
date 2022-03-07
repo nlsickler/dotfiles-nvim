@@ -68,3 +68,5 @@ vim.cmd([[set shellquote= shellxquote=]])
 
 -- Configure some filetype redirects for syntax highlighting
 vim.cmd([[au BufReadPost *.xaml set syntax=xml]])
+
+-- vim.cmd([[colorscheme nightfox]])

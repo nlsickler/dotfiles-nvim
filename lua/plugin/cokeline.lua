@@ -146,17 +146,6 @@ M.config = function()
         max_buffer_width = 30,
       },
 
-      default_hl = {
-        focused = {
-          fg = get_hex('Normal', 'fg'),
-          bg = get_hex('ColorColumn', 'bg'),
-        },
-        unfocused = {
-          fg = get_hex('Comment', 'fg'),
-          bg = get_hex('ColorColumn', 'bg'),
-        },
-      },
-
       components = {
         components.space,
         components.separator,
