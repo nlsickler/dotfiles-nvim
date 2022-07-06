@@ -149,15 +149,6 @@ M.config = function()
       default_hl = {
         fg = function(buffer) if buffer.is_focused then get_hex('Normal', 'fg') else get_hex('Comment', 'fg') end end,
         bg = get_hex('ColorColumn', 'bg'),
-        --[[focused = {
-          fg = get_hex('Normal', 'fg'),
-          bg = get_hex('ColorColumn', 'bg'),
-        },
-        unfocused = {
-          fg = get_hex('Comment', 'fg'),
-          bg = get_hex('ColorColumn', 'bg'),
-        },
-        ]]--
       },
 
       components = {
