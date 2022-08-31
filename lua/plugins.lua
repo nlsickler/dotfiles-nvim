@@ -23,10 +23,8 @@ M.loadPlugins = function()
     use { 'scrooloose/nerdtree', config = function() require('plugin.nerdtree').config() end } -- File explorer
     use 'antoinemadec/FixCursorHold.nvim' --Workaround for an open issue in NeoVim which may take some time to resolve.  Effects several installed plugins: https://github.com/neovim/neovim/issues/12587
     use { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, config = function() require('plugin.neotree').config() end } -- File explorer
-    -- use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.nvim-tree').config() end, after = 'nvim-notify'}
     use 'ryanoasis/vim-devicons' -- Adds git icons to NERDTree, lightline, vim-startify, etc
     use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end, after = 'nvim-notify' } -- Powerline/Airline alterative for bottom status bar
-    -- use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify' }
     use {'noib3/nvim-cokeline', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.cokeline').config() end, after = 'nvim-notify' }
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
@@ -44,7 +42,7 @@ M.loadPlugins = function()
     use 'neovim/nvim-lspconfig' -- Integrates with third party lanugage servers
     use { 'williamboman/nvim-lsp-installer', config = function() require('plugin.nvim-lsp-installer').config() end, after = 'nvim-cmp' } -- Installs LSPs
     use { 'stevearc/aerial.nvim', config = function() require('plugin.aerial').config() end, after = 'nvim-notify' } -- Symbol viewer
-    use 'p00f/nvim-ts-rainbow' -- Different colored closing brackets, etc.
+    use {'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter'} -- Different colored closing brackets, etc.
     use { 'windwp/nvim-autopairs', config = function() require('plugin.autopairs').config() end, after = 'nvim-notify' } -- Automically close parens, quotes in insert
     use { 'norcalli/nvim-colorizer.lua', config = function() require('plugin.colorizer').config() end, after = 'nvim-notify' } -- Changes background of color codes
     use { 'numToStr/Comment.nvim', config = function() require('plugin.comment').config() end, after = 'nvim-notify' }
@@ -66,12 +64,12 @@ M.loadPlugins = function()
     -- Color Schemes
     use 'nlsickler/vim-colors-pencil' -- Customized color scheme
     use 'nlsickler/vim-monokai-pro'
-    use { 'nlsickler/tokyonight-custom', config = function() vim.cmd [[colorscheme tokyonight ]] end}
     use 'reewr/vim-monokai-phoenix'
     use 'tomasr/molokai'
     use 'NLKNguyen/papercolor-theme'
     use 'EdenEast/nightfox.nvim'
-    -- use { 'folke/tokyonight.nvim' }
+    use 'nlsickler/colorscheme-tweaks.nvim'
+    use { 'folke/tokyonight.nvim', config = function() require('plugin.tokyonight').config() end, after = 'colorscheme-tweaks.nvim'}
 
     -- # Plugins in test
 

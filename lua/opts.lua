@@ -13,8 +13,8 @@ vim.opt.linebreak = true
 
 -- Indentation
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.smartindent = true
 vim.opt.list = true
 vim.opt.listchars='tab:→ ,trail:•'
@@ -57,7 +57,6 @@ vim.opt.virtualedit = 'block'
 
 -- Colorscheme
 vim.opt.background = 'dark'
-vim.g.tokyonight_style = 'night'
 
 -- Help Tags: shell-powershell
 -- vim.cmd [[set shell=\"C:/Program\ Files/PowerShell/7/pwsh.exe\"]] -- This works but is machine specific
@@ -66,3 +65,8 @@ vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Comman
 vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 vim.cmd([[set shellquote= shellxquote=]])
+
+-- Configure some filetype redirects for syntax highlighting
+vim.cmd([[au BufReadPost *.xaml set syntax=xml]])
+
+-- vim.cmd([[colorscheme nightfox]])

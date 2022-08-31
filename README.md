@@ -9,6 +9,11 @@ You *must* also add a configuration for it once installed to the plugins-nvim-cm
 
 ## Plugin Things
 
+### [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support)
+
+Shaihulud had problems using gcc within msys2.  I installed mingw and the problems went away. 
+Symptom: Crash when opening some lua files with the parser installed, crash on opening `nvim-treesitter/nvim-treesitter/lockfile.json` with json parser
+
 ### nvim-dap
 
 Requires a download/install of the [necessary debug adapter](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation) 
