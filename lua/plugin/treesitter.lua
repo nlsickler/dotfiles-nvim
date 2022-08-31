@@ -9,7 +9,7 @@ M.config = function()
 
     -- Treesitter configuration
     treesitterConf.module.setup {
-      ensure_installed = "maintained",
+      ensure_installed = "all",
 
       -- Install languages synchronously (only applied to `ensure_installed`)
       sync_install = false,
