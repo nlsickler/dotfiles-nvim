@@ -2,6 +2,7 @@ local modLoader = require('utils.moduleLoader')
 
 LL_audio_lastUpdate = 0
 LL_audio_retry_interval = 10
+LL_audio_currValue = 'No Music'
 LL_audio_lastValue = 'No Music'
 
 local M = {}
@@ -14,21 +15,24 @@ M.config = function()
 
     local function audio_status()
       if (os.time() - LL_audio_lastUpdate) > 10 then
+        LL_audio_lastValue = LL_audio_currValue
         LL_audio_retry_interval = 10
         LL_audio_lastUpdate = os.time()
         local systemResult = vim.fn.system({'spt', 'pb', '-s', '-f', '%t - %a'}) -- Needs to be run async
-        LL_audio_lastValue = '🎵 '..string.sub(systemResult, 1, -2) -- Terminal call appends two characters which break lualine
+        LL_audio_currValue = '🎵 '..string.sub(systemResult, 1, -2) -- Terminal call appends two characters which break lualine
 
-        if string.find(LL_audio_lastValue, "no context") then
+        if string.find(LL_audio_currValue, "no context") then
           -- No music is running.  Back off system calls for 1 minute
           LL_audio_retry_interval = 60
-          LL_audio_lastValue = '🔇 No Music'
+          LL_audio_currValue = '🔇 No Music'
         end
 
-        vim.notify(LL_audio_lastValue..LL_audio_retry_interval, 'info')
+        if(LL_audio_lastValue ~= LL_audio_currValue) then
+          vim.notify(LL_audio_currValue, 'info')
+        end
       end
 
-      return LL_audio_lastValue
+      return LL_audio_currValue
     end
 
     local function curr_time()
