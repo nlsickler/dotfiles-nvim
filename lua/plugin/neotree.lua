@@ -160,9 +160,9 @@ M.config = function()
       --  return args
       --end,
       search_limit = 50, -- max number of search results when using filters
-      filters = {
-        show_hidden = false,
-        respect_gitignore = true,
+      filtered_items = {
+        hide_dotfiles = false,
+        hide_gitignored = true,
       },
       bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
       -- The renderer section provides the renderers that will be used to render the tree.
