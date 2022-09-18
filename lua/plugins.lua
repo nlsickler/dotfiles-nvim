@@ -24,7 +24,7 @@ M.loadPlugins = function()
     use 'antoinemadec/FixCursorHold.nvim' --Workaround for an open issue in NeoVim which may take some time to resolve.  Effects several installed plugins: https://github.com/neovim/neovim/issues/12587
     use { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, config = function() require('plugin.neotree').config() end } -- File explorer
     use 'ryanoasis/vim-devicons' -- Adds git icons to NERDTree, lightline, vim-startify, etc
-    use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end, after = 'nvim-notify' } -- Powerline/Airline alterative for bottom status bar
+    use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end, after = 'nvim-base16' } -- Powerline/Airline alterative for bottom status bar
     use {'noib3/nvim-cokeline', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.cokeline').config() end, after = 'nvim-notify' }
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
@@ -61,18 +61,20 @@ M.loadPlugins = function()
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
-    -- Color Schemes
-    use 'nlsickler/vim-colors-pencil' -- Customized color scheme
-    use 'nlsickler/vim-monokai-pro'
-    use 'reewr/vim-monokai-phoenix'
-    use 'tomasr/molokai'
-    use 'NLKNguyen/papercolor-theme'
-    use 'EdenEast/nightfox.nvim'
     use 'nlsickler/colorscheme-tweaks.nvim'
-    use { 'folke/tokyonight.nvim', config = function() require('plugin.tokyonight').config() end, after = 'colorscheme-tweaks.nvim'}
+
+    -- Color Schemes
+    use { 'RRethy/nvim-base16' , after = 'nvim-notify' } -- Colorschemes for lualine
+    use { 'folke/tokyonight.nvim', config = function() require('plugin.cs-tokyonight').config() end, after = 'colorscheme-tweaks.nvim'}
+    use { 'rafamadriz/neon', config = function() require('plugin.cs-neon').config() end }
+    use { 'marko-cerovac/material.nvim', config = function() require('plugin.cs-material').config() end }
+    use { 'Th3Whit3Wolf/one-nvim', config = function() require('plugin.cs-onenvim').config() end }
+    use { 'Th3Whit3Wolf/space-nvim', config = function() require('plugin.cs-spacenvim').config() end }
+    use { 'ray-x/aurora', config = function() require('plugin.cs-aurora').config() end }
+    use { 'tanvirtin/monokai.nvim', config = function() require('plugin.cs-monokai').config() end }
 
     -- # Plugins in test
-
+        
     -- Force a sync if first installed
     if packer_bootstrap then
       require('packer').sync()

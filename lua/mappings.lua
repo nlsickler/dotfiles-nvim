@@ -52,7 +52,6 @@ if wkMod.loaded then
       ["<leader>"] = {
         name = "Plugin Commands",
         k = {'nohl', 'Hide highlights'},
-        n = {'<cmd>lua require(\'telescope\').extensions.notify.notify()<cr>', 'Telescope Files'},
         ["ss"] = {'<cmd>Telescope aerial<CR>', 'Symbols Search'},
         ["sy"] = {'<cmd>AerialToggle!<CR>', 'Symbols Outline'},
         t = {
@@ -61,6 +60,8 @@ if wkMod.loaded then
           s = {'<cmd>lua require(\'telescope.builtin\').live_grep()<cr>', 'Telescope Grep'},
           h = {'<cmd>lua require(\'telescope.builtin\').help_tags()<cr>', 'Telescope Help'},
           b = {'<cmd>lua require(\'telescope.builtin\').builtin()<cr>', 'Telescope Builtins'},
+          j = {'<cmd>lua require(\'telescope.builtin\').jumplist()<cr>', 'Telescope Jumplist'},
+          n = {'<cmd>lua require(\'telescope\').extensions.notify.notify()<cr>', 'Telescope Files'},
           t = {"<cmd>TroubleToggle<cr>", 'Trouble toggle'},
           l = {
             name = 'LSP Commands',

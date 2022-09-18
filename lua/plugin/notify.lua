@@ -15,7 +15,7 @@ M.config = function()
       timeout = 5000, --ms
       max_width = nil, --columns
       max_height = nil, --lines
-      background_colour = "Normal", -- RGB hex "#000000" or a function that returns that
+      background_colour = "#000000", -- RGB hex "#000000" or a function that returns that
       minimum_width = 50, --columns
 
       -- Default notify icons
