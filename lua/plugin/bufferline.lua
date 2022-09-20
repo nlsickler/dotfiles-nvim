@@ -11,9 +11,7 @@ M.config = function()
       options = {
         separator_style = "slant",
         numbers = "ordinal",
-        sort_by = 'directory',
         max_name_length = 22,
-        persist_buffer_sort = true,
         diagnostics = 'nvim_lsp'
       }
     }

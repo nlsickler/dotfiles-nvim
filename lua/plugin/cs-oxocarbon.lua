@@ -4,14 +4,12 @@ local M = {}
 
 M.config = function()
 
-  vim.g.one_nvim_transparent_bg = true
-
---  vim.cmd([[colorscheme one-nvim]])
+  vim.cmd([[colorscheme oxocarbon-lua]])
 
   local colorTweaks = modLoader.loadModule('colorscheme-tweaks.plugin')
 
   if(colorTweaks.loaded) then
-    -- vim.cmd[[IncreaseContrast 0.3]]
+   --vim.cmd[[IncreaseContrast 0.2]]
   end
 
 end

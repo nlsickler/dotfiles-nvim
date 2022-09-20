@@ -72,12 +72,12 @@ M.loadPlugins = function()
     use { 'Th3Whit3Wolf/space-nvim', config = function() require('plugin.cs-spacenvim').config() end }
     use { 'ray-x/aurora', config = function() require('plugin.cs-aurora').config() end }
     use { 'tanvirtin/monokai.nvim', config = function() require('plugin.cs-monokai').config() end }
+    use { 'B4mbus/oxocarbon-lua.nvim', config = function() require('plugin.cs-oxocarbon').config() end, after = 'nvim-notify'}
 
     -- # Plugins in test
     use { 'akinsho/bufferline.nvim', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify', requires = 'kyazdani42/nvim-web-devicons' }
-    use 'B4mbus/oxocarbon-lua.nvim'
     use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end } -- Surround operators with ys => You Surround
-    use { 'zakharykaplan/nvim-retrail', config = function() require('retrail').setup() end } -- Removes trailing whitespace from lines
+    use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
     use 'mbbill/undotree'
 
     -- Force a sync if first installed
