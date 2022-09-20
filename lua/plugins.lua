@@ -25,7 +25,7 @@ M.loadPlugins = function()
     use { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, config = function() require('plugin.neotree').config() end } -- File explorer
     use 'ryanoasis/vim-devicons' -- Adds git icons to NERDTree, lightline, vim-startify, etc
     use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end, after = 'nvim-base16' } -- Powerline/Airline alterative for bottom status bar
-    use {'noib3/nvim-cokeline', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.cokeline').config() end, after = 'nvim-notify' }
+    -- use {'noib3/nvim-cokeline', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.cokeline').config() end, after = 'nvim-notify' }
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'} } -- Fuzzy completion
@@ -46,7 +46,7 @@ M.loadPlugins = function()
     use { 'windwp/nvim-autopairs', config = function() require('plugin.autopairs').config() end, after = 'nvim-notify' } -- Automically close parens, quotes in insert
     use { 'norcalli/nvim-colorizer.lua', config = function() require('plugin.colorizer').config() end, after = 'nvim-notify' } -- Changes background of color codes
     use { 'numToStr/Comment.nvim', config = function() require('plugin.comment').config() end, after = 'nvim-notify' }
-    use 'tpope/vim-surround' -- Surround operators with ys => You Should
+    --use 'tpope/vim-surround' -- Surround operators with ys => You Should
     use { 'folke/trouble.nvim', config = function() require('plugin.trouble').config() end, after = 'nvim-notify' }
     use { 'mfussenegger/nvim-dap', config = function() require('plugin.dap').config() end, after = 'nvim-notify'}
 
@@ -74,7 +74,12 @@ M.loadPlugins = function()
     use { 'tanvirtin/monokai.nvim', config = function() require('plugin.cs-monokai').config() end }
 
     -- # Plugins in test
-        
+    use { 'akinsho/bufferline.nvim', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify', requires = 'kyazdani42/nvim-web-devicons' }
+    use 'B4mbus/oxocarbon-lua.nvim'
+    use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end } -- Surround operators with ys => You Surround
+    use { 'zakharykaplan/nvim-retrail', config = function() require('retrail').setup() end } -- Removes trailing whitespace from lines
+    use 'mbbill/undotree'
+
     -- Force a sync if first installed
     if packer_bootstrap then
       require('packer').sync()

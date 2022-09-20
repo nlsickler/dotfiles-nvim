@@ -147,8 +147,8 @@ M.config = function()
       },
 
       default_hl = {
-        fg = function(buffer) if buffer.is_focused then get_hex('Normal', 'fg') else get_hex('Comment', 'fg') end end,
-        bg = get_hex('ColorColumn', 'bg'),
+        fg = function(buffer) if buffer.is_focused then get_hex('CursorLineNr', 'fg') else get_hex('LineNr', 'fg') end end,
+        bg = get_hex('Normal', 'bg'),
       },
 
       components = {
