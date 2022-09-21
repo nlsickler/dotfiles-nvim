@@ -74,7 +74,7 @@ M.loadPlugins = function()
     use { 'tanvirtin/monokai.nvim', config = function() require('plugin.cs-monokai').config() end }
     use { 'B4mbus/oxocarbon-lua.nvim', config = function() require('plugin.cs-oxocarbon').config() end, after = 'colorscheme-tweaks.nvim' }
     use { 'catppuccin/nvim', config = function() require('plugin.cs-catppuccin').config() end, after = 'colorscheme-tweaks.nvim' }
-    use 'rebelot/kanagawa.nvim'
+    use { 'rebelot/kanagawa.nvim', config = function() require('plugin.cs-kanagawa').config() end, after = 'colorscheme-tweaks.nvim' }
 
     -- # Plugins in test
     use { 'akinsho/bufferline.nvim', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify', requires = 'kyazdani42/nvim-web-devicons' }
@@ -83,6 +83,7 @@ M.loadPlugins = function()
     use 'mbbill/undotree'
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
     --use { 'stevearc/dressing.nvim', config = function() require('plugin.dressing').config() end }
+    use { 'folke/twilight.nvim', config = function() require('plugin.twilight').config() end, after = {'nvim-notify', 'nvim-treesitter' } } -- Allows disabling color coding outside of current scope (using treesitter)
 
     -- Force a sync if first installed
     if packer_bootstrap then
