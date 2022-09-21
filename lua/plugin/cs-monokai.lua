@@ -12,7 +12,7 @@ M.config = function()
   -- monokai.setup { palette = monokai.soda }
   -- monokai.setup { palette = monokai.ristretto }
 
-  local colorTweaks = modLoader.loadModule('colorscheme-tweaks.plugin')
+  local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
 
   if(colorTweaks.loaded) then
     -- vim.cmd[[IncreaseContrast 0.3]]

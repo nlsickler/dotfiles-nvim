@@ -72,13 +72,17 @@ M.loadPlugins = function()
     use { 'Th3Whit3Wolf/space-nvim', config = function() require('plugin.cs-spacenvim').config() end }
     use { 'ray-x/aurora', config = function() require('plugin.cs-aurora').config() end }
     use { 'tanvirtin/monokai.nvim', config = function() require('plugin.cs-monokai').config() end }
-    use { 'B4mbus/oxocarbon-lua.nvim', config = function() require('plugin.cs-oxocarbon').config() end, after = 'nvim-notify'}
+    use { 'B4mbus/oxocarbon-lua.nvim', config = function() require('plugin.cs-oxocarbon').config() end, after = 'colorscheme-tweaks.nvim' }
+    use { 'catppuccin/nvim', config = function() require('plugin.cs-catppuccin').config() end, after = 'colorscheme-tweaks.nvim' }
+    use 'rebelot/kanagawa.nvim'
 
     -- # Plugins in test
     use { 'akinsho/bufferline.nvim', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end } -- Surround operators with ys => You Surround
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
     use 'mbbill/undotree'
+    use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
+    --use { 'stevearc/dressing.nvim', config = function() require('plugin.dressing').config() end }
 
     -- Force a sync if first installed
     if packer_bootstrap then

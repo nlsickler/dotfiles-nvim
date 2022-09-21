@@ -8,7 +8,7 @@ M.config = function()
 
 --  vim.cmd([[colorscheme space-nvim]])
 
-  local colorTweaks = modLoader.loadModule('colorscheme-tweaks.plugin')
+  local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
 
   if(colorTweaks.loaded) then
     -- vim.cmd[[IncreaseContrast 0.3]]
