@@ -86,6 +86,7 @@ M.loadPlugins = function()
     use { 'folke/twilight.nvim', config = function() require('plugin.twilight').config() end, after = {'nvim-notify', 'nvim-treesitter' } } -- Allows disabling color coding outside of current scope (using treesitter)
     use { 'kevinhwang91/nvim-bqf', config = function() require('plugin.bqf').config() end, after = {'nvim-notify', 'fzf', 'nvim-treesitter' } } -- Enhances the quickfix menu with previews, treesitter, and more
     use { 'chentoast/marks.nvim', config = function() require('marks').setup() end }
+    use {'akinsho/toggleterm.nvim', config = function() require('plugin.toggleterm').config() end, after = 'nvim-notify'}
 
     -- Force a sync if first installed
     if packer_bootstrap then

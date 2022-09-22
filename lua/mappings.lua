@@ -55,6 +55,7 @@ if wkMod.loaded then
         ["ss"] = {'<cmd>Telescope aerial<CR>', 'Symbols Search'},
         ["sy"] = {'<cmd>AerialToggle!<CR>', 'Symbols Outline'},
         ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree Toggle'},
+        ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm'},
         t = {
           name = "Telescope Commands",
           f = {'<cmd>lua require(\'telescope.builtin\').find_files()<cr>', 'Telescope Files'},
