@@ -77,13 +77,15 @@ M.loadPlugins = function()
     use { 'rebelot/kanagawa.nvim', config = function() require('plugin.cs-kanagawa').config() end, after = 'colorscheme-tweaks.nvim' }
 
     -- # Plugins in test
+        --
     use { 'akinsho/bufferline.nvim', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end } -- Surround operators with ys => You Surround
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
     use 'mbbill/undotree'
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
-    --use { 'stevearc/dressing.nvim', config = function() require('plugin.dressing').config() end }
     use { 'folke/twilight.nvim', config = function() require('plugin.twilight').config() end, after = {'nvim-notify', 'nvim-treesitter' } } -- Allows disabling color coding outside of current scope (using treesitter)
+    use { 'kevinhwang91/nvim-bqf', config = function() require('plugin.bqf').config() end, after = {'nvim-notify', 'fzf', 'nvim-treesitter' } } -- Enhances the quickfix menu with previews, treesitter, and more
+    use { 'chentoast/marks.nvim', config = function() require('marks').setup() end }
 
     -- Force a sync if first installed
     if packer_bootstrap then
