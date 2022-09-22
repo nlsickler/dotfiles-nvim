@@ -16,6 +16,8 @@ M.config = function()
                 end
             end,
             open_mapping = nil,
+            direction = 'float',
+            --shade_terminals = false,
         })
 
     end
