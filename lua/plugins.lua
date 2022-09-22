@@ -24,8 +24,7 @@ M.loadPlugins = function()
     use 'antoinemadec/FixCursorHold.nvim' --Workaround for an open issue in NeoVim which may take some time to resolve.  Effects several installed plugins: https://github.com/neovim/neovim/issues/12587
     use { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, config = function() require('plugin.neotree').config() end } -- File explorer
     use 'ryanoasis/vim-devicons' -- Adds git icons to NERDTree, lightline, vim-startify, etc
-    use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end, after = 'nvim-base16' } -- Powerline/Airline alterative for bottom status bar
-    -- use {'noib3/nvim-cokeline', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugin.cokeline').config() end, after = 'nvim-notify' }
+    use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end } -- Powerline/Airline alterative for bottom status bar
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'} } -- Fuzzy completion
@@ -46,7 +45,7 @@ M.loadPlugins = function()
     use { 'windwp/nvim-autopairs', config = function() require('plugin.autopairs').config() end, after = 'nvim-notify' } -- Automically close parens, quotes in insert
     use { 'norcalli/nvim-colorizer.lua', config = function() require('plugin.colorizer').config() end, after = 'nvim-notify' } -- Changes background of color codes
     use { 'numToStr/Comment.nvim', config = function() require('plugin.comment').config() end, after = 'nvim-notify' }
-    --use 'tpope/vim-surround' -- Surround operators with ys => You Should
+    use 'tpope/vim-surround' -- Surround operators with ys => You Should
     use { 'folke/trouble.nvim', config = function() require('plugin.trouble').config() end, after = 'nvim-notify' }
     use { 'mfussenegger/nvim-dap', config = function() require('plugin.dap').config() end, after = 'nvim-notify'}
 
@@ -64,11 +63,11 @@ M.loadPlugins = function()
     use 'nlsickler/colorscheme-tweaks.nvim'
 
     -- Color Schemes
-    use { 'RRethy/nvim-base16' , after = 'nvim-notify' } -- Colorschemes for lualine
+    -- use { 'RRethy/nvim-base16' , after = 'nvim-notify' } -- Colorschemes for lualine
     use { 'folke/tokyonight.nvim', config = function() require('plugin.cs-tokyonight').config() end, after = 'colorscheme-tweaks.nvim'}
     use { 'rafamadriz/neon', config = function() require('plugin.cs-neon').config() end }
     use { 'marko-cerovac/material.nvim', config = function() require('plugin.cs-material').config() end }
-    use { 'Th3Whit3Wolf/one-nvim', config = function() require('plugin.cs-onenvim').config() end }
+    use { 'Th3Whit3Wolf/one-nvim', config = function() require('plugin.cs-onenvim').config() end, after = 'colorscheme-tweaks.nvim' }
     use { 'Th3Whit3Wolf/space-nvim', config = function() require('plugin.cs-spacenvim').config() end }
     use { 'ray-x/aurora', config = function() require('plugin.cs-aurora').config() end }
     use { 'tanvirtin/monokai.nvim', config = function() require('plugin.cs-monokai').config() end }
@@ -79,7 +78,6 @@ M.loadPlugins = function()
     -- # Plugins in test
         --
     use { 'akinsho/bufferline.nvim', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify', requires = 'kyazdani42/nvim-web-devicons' }
-    use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end } -- Surround operators with ys => You Surround
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
     use 'mbbill/undotree'
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
@@ -87,6 +85,8 @@ M.loadPlugins = function()
     use { 'kevinhwang91/nvim-bqf', config = function() require('plugin.bqf').config() end, after = {'nvim-notify', 'fzf', 'nvim-treesitter' } } -- Enhances the quickfix menu with previews, treesitter, and more
     use { 'chentoast/marks.nvim', config = function() require('marks').setup() end }
     use {'akinsho/toggleterm.nvim', config = function() require('plugin.toggleterm').config() end, after = 'nvim-notify'}
+    use { 'simrat39/symbols-outline.nvim', config = function() require('plugin.symbols-outline').config() end, after = 'nvim-notify' }
+    use 'moll/vim-bbye' --Closes buffers without modifying splits, part of the mappings
 
     -- Force a sync if first installed
     if packer_bootstrap then

@@ -4,12 +4,12 @@ local M = {}
 
 M.config = function()
 
+  -- vim.cmd([[colorscheme oxocarbon-lua]])
+
   local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
 
-  vim.cmd([[colorscheme oxocarbon-lua]])
-
   if(colorTweaks.loaded) then
-    vim.cmd([[IncreaseContrast 0.1]])
+    -- vim.cmd([[IncreaseContrast 0.1]])
   end
 
 end

@@ -18,8 +18,6 @@ if wkMod.loaded then
       ["ghp"] = {'<Plug>(GitGutterPreviewHunk)', "Preview Git Diff Under Cursor"},
 
       ["<C-N>"] = {'<cmd>NeoTreeShowToggle<CR>', 'Toggle NeoTree'},
-      -- ["<C-N>"] = {'<cmd>CHADopen<CR>', 'Toggle CHADtree'},
-      -- ["<C-N>"] = {'<cmd>NvimTreeToggle<CR>', 'Toggle CHADtree'},
 
       ["<C-H>"] = {'<C-W><C-H>', 'Switch split left'},
       ["<C-J>"] = {'<C-W><C-J>', 'Switch split Down'},
@@ -36,7 +34,7 @@ if wkMod.loaded then
       -- ['<S-h>'] = {'<Plug>(cokeline-focus-prev)', 'Previous Bufferline Tab'},
       -- ['<S-l>'] = {'<Plug>(cokeline-focus-next)', 'Previous Bufferline Tab'},
 
-      ["BD"] = {':bd!<CR>', 'Force close buffer'},
+      ["BD"] = {':Bdelete!<CR>', 'Force close buffer'},
 
       K = {':lua vim.lsp.buf.hover()<cr>', 'LSP Hover Info'},
       g = {
@@ -52,8 +50,8 @@ if wkMod.loaded then
       ["<leader>"] = {
         name = "Plugin Commands",
         k = {'<cmd>nohl<cr>', 'Hide highlights'},
-        ["ss"] = {'<cmd>Telescope aerial<CR>', 'Symbols Search'},
-        ["sy"] = {'<cmd>AerialToggle!<CR>', 'Symbols Outline'},
+        --["ss"] = {'<cmd>Telescope aerial<CR>', 'Symbols Search'},
+        ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline'},
         ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree Toggle'},
         ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm'},
         t = {
@@ -65,6 +63,7 @@ if wkMod.loaded then
           j = {'<cmd>lua require(\'telescope.builtin\').jumplist()<cr>', 'Telescope Jumplist'},
           n = {'<cmd>lua require(\'telescope\').extensions.notify.notify()<cr>', 'Telescope Notify'},
           t = {"<cmd>TroubleToggle<cr>", 'Trouble toggle'},
+          w = {"<cmd>Twilight<cr>", "Toggles Twilight mode"},
           l = {
             name = 'LSP Commands',
             y = {'<cmd>lua require(\'telescope.builtin\').lsp_document_symbols()<cr>', 'LSP Document Symbols'},
@@ -88,7 +87,7 @@ if wkMod.loaded then
         }, -- LSP Commands
         b = {
           name = 'Buffer Commands',
-          d = {':bd<CR>', 'Delete Buffer'},
+          d = {':Bdelete<CR>', 'Delete Buffer'},
           s = {':BufferLineSortByDirectory<CR>', 'Sort Buffers'},
           --[[ ['1'] = {'<Plug>(cokeline-focus-1)', 'Jump to Buffer 1'},
           ['2'] = {'<Plug>(cokeline-focus-2)', 'Jump to Buffer 2'},
