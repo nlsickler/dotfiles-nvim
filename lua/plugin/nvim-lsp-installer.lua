@@ -37,7 +37,6 @@ M.config = function()
 
     lsp_installer.on_server_ready(function(server)
       local moduleLoader = require('utils.moduleLoader')
-      local aerialMod = moduleLoader.loadModule('aerial')
 
       local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
       local opts = require('plugin.nvim-lsp-installer').servers[server.name]
@@ -45,9 +44,10 @@ M.config = function()
       if(opts ~= nil) then
         opts['capabilities'] = capabilities
 
+       --[[  local aerialMod = moduleLoader.loadModule('aerial')
         if aerialMod.loaded then
           opts['on_attach'] = aerialMod.module.on_attach
-        end
+        end ]]
 
         server:setup(opts)
       end
