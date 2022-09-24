@@ -21,7 +21,7 @@ M.loadPlugins = function()
     use 'antoinemadec/FixCursorHold.nvim' --Workaround for an open issue in NeoVim which may take some time to resolve.  Effects several installed plugins: https://github.com/neovim/neovim/issues/12587
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
-    use { 'folke/which-key.nvim', config = function() require('plugin.whichkey').config() end } -- Key mapping manager and reminder
+    use { 'folke/which-key.nvim', config = function() require('plugin.whichkey').config() end, after = 'legendary'} -- Key mapping manager and reminder
     use 'psliwka/vim-smoothie' -- Scrolling enhancements
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines

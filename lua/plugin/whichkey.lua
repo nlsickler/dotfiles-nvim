@@ -70,6 +70,7 @@ M.config = function()
       },
     })
 
+    -- This actually performs all of the mappings
     require('mappings')
 
   end
