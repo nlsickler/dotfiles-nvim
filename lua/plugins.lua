@@ -90,6 +90,9 @@ M.loadPlugins = function()
 
     -- # Plugins in test
     use { 'matbme/JABS.nvim', config = function() require('jabs').setup() end } -- Just Another Buffer Switcher - shows buffers in a pop-up allowing them to be swtiched, deleted, etc.
+    use { 'sitiom/nvim-numbertoggle', config = function() require('numbertoggle').setup() end } -- Switches to relative number in normal mode for the active buffer
+    use { 'stevearc/dressing.nvim', config = function() require('dressing').setup() end } -- Used for legendary
+    use { 'mrjones2014/legendary.nvim' } -- Configured as part of mappings.lua
 
     -- Force a sync if first installed
     if packer_bootstrap then
