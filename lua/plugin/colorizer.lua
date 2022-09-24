@@ -5,7 +5,7 @@ local M = {}
 M.config = function()
 
   local colorMod = {}
-  modLoader.loadModule('colorizer', colorMod)
+  colorMod = modLoader.loadModule('colorizer')
 
   if colorMod.loaded then
     colorMod.module.setup({

@@ -4,7 +4,7 @@ local M = {}
 
 M.config = function()
 
-    symMod = modLoader.loadModule('symbols-outline')
+    local symMod = modLoader.loadModule('symbols-outline')
 
     if symMod.loaded then
 
