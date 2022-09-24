@@ -6,11 +6,16 @@ M.isLoaded = function(module)
   return M.tablePopulated(module) and module.loaded
 end
 
-M.loadModule = function(moduleName) local status_ok, mod = pcall(require, moduleName)
+M.loadModule = function(moduleName, shouldNotify) local status_ok, mod = pcall(require, moduleName)
+  if shouldNotify == nil then
+    shouldNotify = true
+  end
 
   if not status_ok then
     mod = nil
-    vim.notify('Cannot load '..moduleName, 'warn')
+    if shouldNotify then
+      vim.notify('Cannot load '..moduleName, 'warn')
+    end
   end
 
   return {
