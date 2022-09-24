@@ -54,8 +54,9 @@ if wkMod.loaded then
 
       ["<leader>"] = {
         name = "Plugin Commands",
-        ["?"] = {'<cmd>Legendary<cr>', 'Legendary - Show Window'},
         k = {'<cmd>nohl<cr>', 'Hide highlights'},
+        m = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
+        ["?"] = {'<cmd>Legendary<cr>', 'Legendary - Show Window'},
         --["ss"] = {'<cmd>Telescope aerial<CR>', 'Symbols Search'},
         ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline - Toggle'},
         ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},

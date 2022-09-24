@@ -13,7 +13,7 @@ M.config = function()
                 alpha = 0.25,
                 inactive = true,
             },
-            context = 20,
+            context = 99,
             treesitter = true,
             exclude = {
                 "startify",

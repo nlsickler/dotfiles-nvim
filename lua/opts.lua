@@ -28,6 +28,11 @@ vim.opt.hlsearch = true
 vim.opt.mouse = 'a'
 vim.opt.ruler = true
 
+-- Window Settings
+vim.o.winwidth = 20
+vim.o.winminwidth = 10
+vim.o.equalalways = false
+
 -- Splits
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -40,7 +45,7 @@ vim.opt.foldminlines = 5
 
 -- Misc
 vim.opt.cursorline = true
-vim.opt.termguicolors = true -- Required by bufferline
+vim.opt.termguicolors = true -- Required by many plugins
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.showmode = false
@@ -68,5 +73,3 @@ vim.cmd([[set shellquote= shellxquote=]])
 
 -- Configure some filetype redirects for syntax highlighting
 vim.cmd([[au BufReadPost *.xaml set syntax=xml]])
-
--- vim.cmd([[colorscheme nightfox]])

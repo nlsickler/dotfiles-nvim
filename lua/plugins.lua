@@ -95,6 +95,7 @@ M.loadPlugins = function()
     use { 'stevearc/dressing.nvim', config = function() require('dressing').setup() end } -- Used for legendary
     use { 'mrjones2014/legendary.nvim' } -- Configured as part of mappings.lua
 
+    use { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, config = function() require('windows').setup() end } -- Automically resizes windows
 
     -- Force a sync if first installed
     if packer_bootstrap then
