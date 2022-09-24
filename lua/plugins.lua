@@ -37,12 +37,12 @@ M.loadPlugins = function()
     use 'ryanoasis/vim-devicons' -- Adds git icons to NERDTree, lightline, vim-startify, etc
     use 'tpope/vim-surround' -- Surround operators with ys => You Should
     use { 'folke/twilight.nvim', config = function() require('plugin.twilight').config() end, after = {'nvim-notify', 'nvim-treesitter' } } -- Allows disabling color coding outside of current scope (using treesitter)
+    use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end } -- Powerline/Airline alterative for bottom status bar
 
     -- New general functionality
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'} } -- Fuzzy completion
     use { 'mhinz/vim-startify', config = function() require('plugin.startify').config() end, after = 'nvim-notify' } -- Dashboard style plugin for the start screen
     use { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, config = function() require('plugin.neotree').config() end } -- File explorer
-    use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end } -- Powerline/Airline alterative for bottom status bar
     use 'mbbill/undotree'
 
     -- Git
@@ -72,7 +72,6 @@ M.loadPlugins = function()
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
-
     -- Color Schemes
     use 'nlsickler/colorscheme-tweaks.nvim' -- Adds IncreaseContrast and DecreaseContrast commands
 
@@ -95,6 +94,7 @@ M.loadPlugins = function()
     use { 'mrjones2014/legendary.nvim' } -- Configured as part of mappings.lua
 
     use { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, config = function() require('windows').setup() end } -- Automically resizes windows
+
 
     -- Force a sync if first installed
     if packer_bootstrap then

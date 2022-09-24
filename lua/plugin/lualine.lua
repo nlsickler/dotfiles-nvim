@@ -44,6 +44,22 @@ M.config = function()
       return os.date('%Y-%m-%d %H:%M:%S')
     end
 
+    local function active_lsp()
+      local msg = 'None'
+      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+      local clients = vim.lsp.get_active_clients()
+      if next(clients) == nil then
+        return "LSP: "..msg
+      end
+      for _, client in ipairs(clients) do
+        local filetypes = client.config.filetypes
+        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+          return "LSP: "..client.name
+        end
+      end
+      return msg
+    end
+
     luaMod.module.setup {
       options = {
         icons_enabled = true,
@@ -55,13 +71,12 @@ M.config = function()
       },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {
-          {'filename',
-            file_status = true,
-            path = 1,
-            shorting_target = 64,}
+        lualine_b = {
+          'branch',
+          'diff',
+          {'filename', file_status = true, path = 1, shorting_target = 64}
         },
+        lualine_c = { active_lsp, 'diagnostics' },
         lualine_x = { audio_status, 'encoding' },
         lualine_y = {'location'},
         lualine_z = { curr_time }
