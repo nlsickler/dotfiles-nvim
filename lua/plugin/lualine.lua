@@ -45,16 +45,17 @@ M.config = function()
     end
 
     local function active_lsp()
+      local prefix = ' LSP: '
       local msg = 'None'
       local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
       local clients = vim.lsp.get_active_clients()
       if next(clients) == nil then
-        return "LSP: "..msg
+        return prefix..msg
       end
       for _, client in ipairs(clients) do
         local filetypes = client.config.filetypes
         if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-          return "LSP: "..client.name
+          return prefix..client.name
         end
       end
       return msg
