@@ -6,12 +6,12 @@ M.config = function()
 
   vim.g.one_nvim_transparent_bg = true
 
- vim.cmd([[colorscheme one-nvim]])
+ -- vim.cmd([[colorscheme one-nvim]])
 
   local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
 
   if(colorTweaks.loaded) then
-    vim.cmd[[IncreaseContrast 0.1]]
+    -- vim.cmd[[IncreaseContrast 0.1]]
   end
 
 end

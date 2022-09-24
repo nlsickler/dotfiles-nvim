@@ -21,7 +21,7 @@ M.loadPlugins = function()
     use 'antoinemadec/FixCursorHold.nvim' --Workaround for an open issue in NeoVim which may take some time to resolve.  Effects several installed plugins: https://github.com/neovim/neovim/issues/12587
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
-    use { 'folke/which-key.nvim', config = function() require('plugin.whichkey').config() end, after = 'legendary'} -- Key mapping manager and reminder
+    use { 'folke/which-key.nvim', config = function() require('plugin.whichkey').config() end } -- Key mapping manager and reminder
     use 'psliwka/vim-smoothie' -- Scrolling enhancements
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
@@ -87,12 +87,14 @@ M.loadPlugins = function()
     use { 'B4mbus/oxocarbon-lua.nvim', config = function() require('plugin.cs-oxocarbon').config() end, after = 'colorscheme-tweaks.nvim' }
     use { 'catppuccin/nvim', config = function() require('plugin.cs-catppuccin').config() end, after = 'colorscheme-tweaks.nvim' }
     use { 'rebelot/kanagawa.nvim', config = function() require('plugin.cs-kanagawa').config() end, after = 'colorscheme-tweaks.nvim' }
+    use { 'projekt0n/github-nvim-theme', config = function() require('plugin.cs-github').config() end, after = 'colorscheme-tweaks.nvim'}
 
     -- # Plugins in test
     use { 'matbme/JABS.nvim', config = function() require('jabs').setup() end } -- Just Another Buffer Switcher - shows buffers in a pop-up allowing them to be swtiched, deleted, etc.
     use { 'sitiom/nvim-numbertoggle', config = function() require('numbertoggle').setup() end } -- Switches to relative number in normal mode for the active buffer
     use { 'stevearc/dressing.nvim', config = function() require('dressing').setup() end } -- Used for legendary
     use { 'mrjones2014/legendary.nvim' } -- Configured as part of mappings.lua
+
 
     -- Force a sync if first installed
     if packer_bootstrap then
