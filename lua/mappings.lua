@@ -87,8 +87,9 @@ if wkMod.loaded then
         }, -- LSP Commands
         b = {
           name = 'Buffer Commands',
-          d = {':Bdelete<CR>', 'Delete Buffer'},
-          s = {':BufferLineSortByDirectory<CR>', 'Sort Buffers'},
+          d = {'<cmd>Bdelete<CR>', 'Delete Buffer'},
+          s = {'<cmd>BufferLineSortByDirectory<CR>', 'Sort Buffers'},
+          m = {'<cmd>JABSOpen<CR>', 'Manage buffers w/ JABS'},
           --[[ ['1'] = {'<Plug>(cokeline-focus-1)', 'Jump to Buffer 1'},
           ['2'] = {'<Plug>(cokeline-focus-2)', 'Jump to Buffer 2'},
           ['3'] = {'<Plug>(cokeline-focus-3)', 'Jump to Buffer 3'},

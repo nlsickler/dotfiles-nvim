@@ -89,6 +89,7 @@ M.loadPlugins = function()
     use { 'rebelot/kanagawa.nvim', config = function() require('plugin.cs-kanagawa').config() end, after = 'colorscheme-tweaks.nvim' }
 
     -- # Plugins in test
+    use { 'matbme/JABS.nvim', config = function() require('jabs').setup() end } -- Just Another Buffer Switcher - shows buffers in a pop-up allowing them to be swtiched, deleted, etc.
 
     -- Force a sync if first installed
     if packer_bootstrap then
