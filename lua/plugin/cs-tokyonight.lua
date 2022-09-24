@@ -4,13 +4,12 @@ local M = {}
 
 M.config = function()
 
-  vim.g.tokyonight_style = 'night'
-  --vim.cmd([[colorscheme tokyonight]])
+  vim.cmd([[colorscheme tokyonight-night]])
 
   local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
 
   if(colorTweaks.loaded) then
-    --vim.cmd[[IncreaseContrast 0.3]]
+    vim.cmd[[IncreaseContrast 0.3]]
   end
 
 end
