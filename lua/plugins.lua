@@ -61,21 +61,20 @@ M.loadPlugins = function()
     use { 'mfussenegger/nvim-dap', config = function() require('plugin.dap').config() end, after = 'nvim-notify'}
     use 'gpanders/editorconfig.nvim' -- Makes nvim respect .editorconfig files
     use { 'simrat39/symbols-outline.nvim', config = function() require('plugin.symbols-outline').config() end, after = 'nvim-notify' }
-    -- use { 'stevearc/aerial.nvim', config = function() require('plugin.aerial').config() end, after = 'nvim-notify' } -- Symbol viewer
 
-      --Code Completion
+    --Code Completion
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use { 'hrsh7th/nvim-cmp', config = function() require('plugin.nvim-cmp').config() end, after = 'nvim-notify' }
-      -- Snippets for final step of completion (a snippet engine is required by nvim-cmp)
+    -- Snippets for final step of completion (a snippet engine is required by nvim-cmp)
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
 
     -- Color Schemes
-    use 'nlsickler/colorscheme-tweaks.nvim'
+    use 'nlsickler/colorscheme-tweaks.nvim' -- Adds IncreaseContrast and DecreaseContrast commands
 
     use { 'folke/tokyonight.nvim', config = function() require('plugin.cs-tokyonight').config() end, after = 'colorscheme-tweaks.nvim'}
     use { 'rafamadriz/neon', config = function() require('plugin.cs-neon').config() end }

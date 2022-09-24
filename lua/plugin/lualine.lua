@@ -1,9 +1,9 @@
 local modLoader = require('utils.moduleLoader')
+local spotifyHelper = require('utils.spotify')
 
 LL_audio_lastUpdate = 0
-LL_audio_retry_interval = 10
-LL_audio_currValue = 'No Music'
-LL_audio_lastValue = 'No Music'
+LL_audio_retry_interval = 10000
+LL_audio_currValue = nil
 
 local M = {}
 
@@ -13,23 +13,28 @@ M.config = function()
 
   if luaMod.loaded then
 
+    local function update_audio_status()
+      LL_audio_lastUpdate = os.time()
+
+      local track_info = spotifyHelper.get_track_info()
+
+      if track_info.is_playing then
+        LL_audio_retry_interval = 10000
+      else
+        LL_audio_retry_interval = 60000
+      end
+
+      if(track_info.track_display ~= LL_audio_currValue) then
+        LL_audio_currValue = track_info.track_display
+        vim.notify(LL_audio_currValue, 'info')
+      end
+
+      vim.defer_fn(function() update_audio_status() end, LL_audio_retry_interval)
+    end
+
     local function audio_status()
-      if (os.time() - LL_audio_lastUpdate) > 10 then
-        LL_audio_lastValue = LL_audio_currValue
-        LL_audio_retry_interval = 10
-        LL_audio_lastUpdate = os.time()
-        local systemResult = vim.fn.system({'spt', 'pb', '-s', '-f', '%t - %a'}) -- Needs to be run async
-        LL_audio_currValue = '🎵 '..string.sub(systemResult, 1, -2) -- Terminal call appends two characters which break lualine
-
-        if string.find(LL_audio_currValue, "no context") then
-          -- No music is running.  Back off system calls for 1 minute
-          LL_audio_retry_interval = 60
-          LL_audio_currValue = '🔇 No Music'
-        end
-
-        if(LL_audio_lastValue ~= LL_audio_currValue) then
-          vim.notify(LL_audio_currValue, 'info')
-        end
+      if LL_audio_lastUpdate == 0 then
+        update_audio_status()
       end
 
       return LL_audio_currValue
@@ -52,7 +57,7 @@ M.config = function()
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {
-        {'filename',
+          {'filename',
             file_status = true,
             path = 1,
             shorting_target = 64,}

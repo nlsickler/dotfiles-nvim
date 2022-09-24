@@ -9,6 +9,7 @@ if wkMod.loaded then
   vim.g.mapleader = ' '
 
   if legendMod.loaded then
+    -- Done here to ensure it is loaded before which-key mappings are registered
     legendMod.module.setup()
   end
 
