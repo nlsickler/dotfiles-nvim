@@ -26,6 +26,20 @@ M.config = function()
       indent = {
         enable = true,
       },
+      textobjects = {
+        select = {
+          enable = true,
+          loockahead = true,
+          keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@call.outer",
+            ["ic"] = "@call.inner",
+            ["aC"] = "@class.outer",
+            ["iC"] = "@class.inner",
+          }
+        }
+      }
     }
 
     M.loadLanguageSettings('lua')
@@ -34,7 +48,7 @@ M.config = function()
 end
 
 M.loadLanguageSettings = function(name)
-  local module = mLoader.loadModule('plugin.tsconf.'..name)
+  local module = mLoader.loadModule('plugin.treesitter.tsconf.'..name)
 
   if module.loaded then
     module.module.config()

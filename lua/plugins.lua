@@ -50,7 +50,8 @@ M.loadPlugins = function()
     use 'tpope/vim-fugitive'
 
     -- Programming
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require('plugin.treesitter').config() end, after = 'nvim-notify' }
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', after = 'nvim-notify' } -- Core configuration moved to textobjects since they are configured together
+    use {'nvim-treesitter/nvim-treesitter-textobjects', config = function() require('plugin.treesitter.core').config() end, after = 'nvim-treesitter' }
     use 'neovim/nvim-lspconfig' -- Integrates with third party lanugage servers
     use { 'williamboman/nvim-lsp-installer', config = function() require('plugin.nvim-lsp-installer').config() end, after = 'nvim-cmp' } -- Installs LSPs
     use {'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter'} -- Different colored closing brackets, etc.
