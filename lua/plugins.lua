@@ -53,7 +53,7 @@ M.loadPlugins = function()
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', after = 'nvim-notify' } -- Core configuration moved to textobjects since they are configured together
     use {'nvim-treesitter/nvim-treesitter-textobjects', config = function() require('plugin.treesitter.core').config() end, after = 'nvim-treesitter' }
     use 'neovim/nvim-lspconfig' -- Integrates with third party lanugage servers
-    use { 'williamboman/nvim-lsp-installer', config = function() require('plugin.nvim-lsp-installer').config() end, after = 'nvim-cmp' } -- Installs LSPs
+    use { 'williamboman/mason.nvim', config = function() require('plugin.mason').config() end, after = 'nvim-cmp' } -- Installs LSPs
     use {'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter'} -- Different colored closing brackets, etc.
     use { 'windwp/nvim-autopairs', config = function() require('plugin.autopairs').config() end, after = 'nvim-notify' } -- Automically close parens, quotes in insert
     use { 'norcalli/nvim-colorizer.lua', config = function() require('plugin.colorizer').config() end, after = 'nvim-notify' } -- Changes background color of color codes
