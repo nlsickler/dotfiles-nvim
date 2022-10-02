@@ -18,7 +18,6 @@ M.loadPlugins = function()
     use {'wbthomason/packer.nvim'}
 
     -- General functionality tweaks
-    use 'antoinemadec/FixCursorHold.nvim' --Workaround for an open issue in NeoVim which may take some time to resolve.  Effects several installed plugins: https://github.com/neovim/neovim/issues/12587
     use { 'sitiom/nvim-numbertoggle', config = function() require('numbertoggle').setup() end } -- Switches to relative number in normal mode for the active buffer
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder

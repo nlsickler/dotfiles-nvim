@@ -6,6 +6,7 @@ M.config = function()
   local treesitterConf = mLoader.loadModule('nvim-treesitter.configs')
 
   if treesitterConf.loaded then
+    require('nvim-treesitter.install').compilers = {'clang'}
 
     -- Treesitter configuration
     treesitterConf.module.setup {

@@ -61,6 +61,7 @@ M.config = function()
       return msg
     end
 
+    --
     local function tsStatus()
       local lsp_status = require("nvim-treesitter").statusline({
         indicator_size = 100,
@@ -95,12 +96,11 @@ M.config = function()
       },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {
+        lualine_b = { active_lsp, 'diagnostics' },
+        lualine_c = {
           'branch',
           'diff',
-          {'filename', file_status = true, path = 1, shorting_target = 64}
         },
-        lualine_c = { active_lsp, 'diagnostics' },
         lualine_x = { audio_status, 'encoding' },
         lualine_y = {'location'},
         lualine_z = { curr_time }
@@ -115,23 +115,24 @@ M.config = function()
       },
 
       winbar = {
-        lualine_a = {'filename'},
+        lualine_a = {{'filename', file_status = true, path = 1, shorting_target = 64}},
         lualine_b = {tsStatus},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {'filetype'},
+        lualine_z = {}
       },
       inactive_winbar = {
-        lualine_a = {'filename'},
+        lualine_a = {{'filename', file_status = true, path = 1, shorting_target = 64}},
         lualine_b = {tsStatus},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {'filetype'},
+        lualine_z = {}
       },
 
       extensions = {}
     }
-
   end
 end
 

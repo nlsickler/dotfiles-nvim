@@ -3,3 +3,4 @@
 *.swo
 *.orig
 packer_compiled.lua
+node_modules
