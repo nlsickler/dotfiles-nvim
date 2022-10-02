@@ -36,6 +36,8 @@ vim.o.equalalways = false
 -- Splits
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.laststatus = 3 -- Makes the statusbar window-wide and not isoldated to a buffer
+vim.cmd([[set winbar=%y%=%r\ %f\ %m%=%l\:%L]])
 
 -- Folds
 vim.opt.foldmethod = 'expr'

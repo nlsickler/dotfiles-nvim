@@ -61,6 +61,29 @@ M.config = function()
       return msg
     end
 
+    local function tsStatus()
+      local lsp_status = require("nvim-treesitter").statusline({
+        indicator_size = 100,
+        separator = " ❱ ",
+        transform_fn = function(line)
+          return line:gsub("%s*[%[%(%{]*%s*$", "")
+        end,
+        type_patterns = {
+          "class",
+          "function",
+          "method",
+          "import",
+          "for",
+          "if",
+          "while",
+          "variable",
+          "comment",
+        },
+      })
+
+      return lsp_status
+    end
+
     luaMod.module.setup {
       options = {
         icons_enabled = true,
@@ -90,6 +113,22 @@ M.config = function()
         lualine_y = {},
         lualine_z = {}
       },
+
+      winbar = {
+        lualine_a = {'filename'},
+        lualine_b = {tsStatus},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {'filetype'},
+      },
+      inactive_winbar = {
+        lualine_a = {'filename'},
+        lualine_b = {tsStatus},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {'filetype'},
+      },
+
       extensions = {}
     }
 

@@ -19,9 +19,12 @@ M.loadPlugins = function()
 
     -- General functionality tweaks
     use 'antoinemadec/FixCursorHold.nvim' --Workaround for an open issue in NeoVim which may take some time to resolve.  Effects several installed plugins: https://github.com/neovim/neovim/issues/12587
+    use { 'sitiom/nvim-numbertoggle', config = function() require('numbertoggle').setup() end } -- Switches to relative number in normal mode for the active buffer
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
     use { 'folke/which-key.nvim', config = function() require('plugin.whichkey').config() end } -- Key mapping manager and reminder
+    use { 'stevearc/dressing.nvim', config = function() require('dressing').setup() end } -- Used for legendary
+    use { 'mrjones2014/legendary.nvim' } -- Configured as part of mappings.lua
     use 'psliwka/vim-smoothie' -- Scrolling enhancements
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
@@ -38,34 +41,27 @@ M.loadPlugins = function()
     use 'tpope/vim-surround' -- Surround operators with ys => You Should
     use { 'folke/twilight.nvim', config = function() require('plugin.twilight').config() end, after = {'nvim-notify', 'nvim-treesitter' } } -- Allows disabling color coding outside of current scope (using treesitter)
     use { 'nvim-lualine/lualine.nvim', config = function() require('plugin.lualine').config() end } -- Powerline/Airline alterative for bottom status bar
+    use { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, config = function() require('windows').setup() end } -- Automically resizes windows
 
     -- New general functionality
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'} } -- Fuzzy completion
     use { 'mhinz/vim-startify', config = function() require('plugin.startify').config() end, after = 'nvim-notify' } -- Dashboard style plugin for the start screen
     use { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, config = function() require('plugin.neotree').config() end } -- File explorer
     use 'mbbill/undotree'
+    use { 'matbme/JABS.nvim', config = function() require('jabs').setup() end } -- Just Another Buffer Switcher - shows buffers in a pop-up allowing them to be swtiched, deleted, etc.
 
     -- Git
     use 'airblade/vim-gitgutter' -- Adds git information to gutter
     use 'tpope/vim-fugitive'
 
     -- Programming
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', after = 'nvim-notify' } -- Core configuration moved to textobjects since they are configured together
-    use {'nvim-treesitter/nvim-treesitter-textobjects', config = function() require('plugin.treesitter.core').config() end, after = 'nvim-treesitter' }
-
-    --[[ use { "williamboman/mason.nvim", after = 'nvim-cmp'}
-    use { "williamboman/mason-lspconfig.nvim", after = 'mason' }
-    use {"neovim/nvim-lspconfig",
-      config = function() require('plugin.mason').config() end,
-      after = 'mason-lspconfig.nvim'
-    } ]]
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', after = 'nvim-notify' } -- Core configuration moved to textobjects since they are configured together
+    use { 'nvim-treesitter/nvim-treesitter-textobjects', config = function() require('plugin.treesitter.core').config() end, after = 'nvim-treesitter' }
+    use { 'nvim-treesitter/nvim-treesitter-context', config = function() require('treesitter-context').setup() end, after = 'nvim-treesitter' }
 
     use "williamboman/mason.nvim"
     use { "williamboman/mason-lspconfig.nvim", after = "mason.nvim" }
     use { "neovim/nvim-lspconfig", config = function() require("plugin.mason").config() end, after = "mason-lspconfig.nvim" }
-
-
-    -- Installs and configures LSPs
 
     use {'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter'} -- Different colored closing brackets, etc.
     use { 'windwp/nvim-autopairs', config = function() require('plugin.autopairs').config() end, after = 'nvim-notify' } -- Automically close parens, quotes in insert
@@ -103,12 +99,6 @@ M.loadPlugins = function()
     use { 'projekt0n/github-nvim-theme', config = function() require('plugin.cs-github').config() end, after = 'colorscheme-tweaks.nvim'}
 
     -- # Plugins in test
-    use { 'matbme/JABS.nvim', config = function() require('jabs').setup() end } -- Just Another Buffer Switcher - shows buffers in a pop-up allowing them to be swtiched, deleted, etc.
-    use { 'sitiom/nvim-numbertoggle', config = function() require('numbertoggle').setup() end } -- Switches to relative number in normal mode for the active buffer
-    use { 'stevearc/dressing.nvim', config = function() require('dressing').setup() end } -- Used for legendary
-    use { 'mrjones2014/legendary.nvim' } -- Configured as part of mappings.lua
-
-    use { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, config = function() require('windows').setup() end } -- Automically resizes windows
 
     -- Force a sync if first installed
     if packer_bootstrap then
