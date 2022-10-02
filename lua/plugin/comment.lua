@@ -9,7 +9,7 @@ function M.config()
   if comMod.loaded then
     comMod.module.setup(
     {
-      padding = true, -- Adds space between commend and line
+      padding = true, -- Adds space between comment and line
       sticky = true, -- Keep cursor in current location
       ignore = nil, -- Lines to ignore (@Type string:Regex)
 

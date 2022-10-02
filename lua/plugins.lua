@@ -82,6 +82,7 @@ M.loadPlugins = function()
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use { 'hrsh7th/nvim-cmp', config = function() require('plugin.nvim-cmp').config() end, after = 'nvim-notify' }
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
     -- Snippets for final step of completion (a snippet engine is required by nvim-cmp)
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
@@ -108,7 +109,6 @@ M.loadPlugins = function()
     use { 'mrjones2014/legendary.nvim' } -- Configured as part of mappings.lua
 
     use { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, config = function() require('windows').setup() end } -- Automically resizes windows
-
 
     -- Force a sync if first installed
     if packer_bootstrap then
