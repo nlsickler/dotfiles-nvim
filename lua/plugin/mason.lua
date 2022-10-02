@@ -2,30 +2,13 @@ local modLoader = require('utils.moduleLoader')
 
 local M = {}
 
-M.servers = {
-  [ 'bashls' ] = {},
-  [ 'clangd' ] = {},
-  [ 'pyright' ] = {},
-  [ 'sumneko_lua' ] = {
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { 'vim', 'use' }
-        },
-      }
-    }
-  },
-  [ 'powershell_es' ] = {},
-  [ 'ltex' ] = {},
-  [ 'omnisharp' ] = { root_dir = require('lspconfig/util').root_pattern('*.sln') },
-  [ 'spectral' ] = {},
-}
-
 M.config = function()
 
   local masonMod = modLoader.loadModule('mason')
+  local mcMod = modLoader.loadModule('mason-lspconfig')
+  local lcMod = modLoader.loadModule('lspconfig')
 
-  if masonMod.loaded then
+  if masonMod.loaded and mcMod.loaded and lcMod.loaded then
     masonMod.module.setup({
       ui = {
         icons = {
@@ -35,6 +18,42 @@ M.config = function()
         }
       }
     })
+
+    mcMod.module.setup({
+      ensure_installed = {
+        "lua-language-server",
+        "omnisharp",
+      },
+      automatic_installation = true,
+    })
+
+    -- Provides a default configuration for LSP servers (and allows for specification of custom configs)
+    -- Largely, this allows for servers to be used without having to update the config for each server (meaning they can be used without restarting nvim)
+    require("mason-lspconfig").setup_handlers {
+      function (server_name)
+        require("lspconfig")[server_name].setup {}
+      end,
+
+      ["omnisharp"] = function ()
+        require("lspconfig")["omnisharp"].setup {
+          root_dir = require('lspconfig/util').root_pattern('*.sln')
+        }
+      end,
+
+      ["sumneko_lua"] = function()
+        require("lspconfig")["sumneko_lua"].setup {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { 'vim', 'use' }
+              },
+            }
+          }
+        }
+      end
+    }
+
+
   end
 end
 
