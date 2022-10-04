@@ -98,6 +98,19 @@ M.loadPlugins = function()
     use { 'projekt0n/github-nvim-theme', config = function() require('plugin.cs-github').config() end, after = 'colorscheme-tweaks.nvim'}
 
     -- # Plugins in test
+    use {
+      "folke/noice.nvim",
+      event = "VimEnter",
+      config = function()
+        require("plugin.noice").config()
+      end,
+      requires = {
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+        "MunifTanjim/nui.nvim",
+        "rcarriga/nvim-notify",
+        "hrsh7th/nvim-cmp",
+      }
+    }
 
     -- Force a sync if first installed
     if packer_bootstrap then
