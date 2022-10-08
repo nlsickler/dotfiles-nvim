@@ -7,17 +7,17 @@ M.config = function()
 
     --vim.cmd([[colorscheme catppuccin]])
 
-    local cs = modLoader.loadModule('catppuccin')
+    -- local cs = modLoader.loadModule('catppuccin')
 
-    if cs.loaded then
-        --cs.module.setup()
-    end
-
-    local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
-
-    if colorTweaks.loaded then
-        --vim.cmd([[IncreaseContrast 0.2]])
-    end
+    -- if cs.loaded then
+    --     cs.module.setup()
+    -- end
+    --
+    -- local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
+    --
+    -- if colorTweaks.loaded then
+    --     vim.cmd([[IncreaseContrast 0.2]])
+    -- end
 
 end
 

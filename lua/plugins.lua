@@ -96,6 +96,7 @@ M.loadPlugins = function()
     use { 'catppuccin/nvim', config = function() require('plugin.cs-catppuccin').config() end, after = 'colorscheme-tweaks.nvim' }
     use { 'rebelot/kanagawa.nvim', config = function() require('plugin.cs-kanagawa').config() end, after = 'colorscheme-tweaks.nvim' }
     use { 'projekt0n/github-nvim-theme', config = function() require('plugin.cs-github').config() end, after = 'colorscheme-tweaks.nvim'}
+    use { 'lukas-reineke/indent-blankline.nvim', config = function() require('plugin.indent-blankline').config() end }
 
     -- # Plugins in test
     use {
