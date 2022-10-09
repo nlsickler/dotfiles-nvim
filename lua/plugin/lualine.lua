@@ -16,7 +16,7 @@ M.config = function()
     local function update_audio_status()
       LL_audio_lastUpdate = os.time()
 
-      local track_info = spotifyHelper.get_track_info()
+      local track_info = spotifyHelper.get_media_info()
 
       if track_info.is_playing then
         LL_audio_retry_interval = 10000
@@ -64,7 +64,7 @@ M.config = function()
     --
     local function tsStatus()
       local lsp_status = require("nvim-treesitter").statusline({
-        indicator_size = 100,
+        indicator_size = 50,
         separator = " ❱ ",
         transform_fn = function(line)
           return line:gsub("%s*[%[%(%{]*%s*$", "")
@@ -101,8 +101,8 @@ M.config = function()
           'branch',
           'diff',
         },
-        lualine_x = { audio_status, 'encoding' },
-        lualine_y = {'location'},
+        lualine_x = { audio_status },
+        lualine_y = {'encoding'},
         lualine_z = { curr_time }
       },
       inactive_sections = {
@@ -120,7 +120,7 @@ M.config = function()
         lualine_c = {},
         lualine_x = {},
         lualine_y = {'filetype'},
-        lualine_z = {}
+        lualine_z = {'location'}
       },
       inactive_winbar = {
         lualine_a = {{'filename', file_status = true, path = 1, shorting_target = 64}},
@@ -128,7 +128,7 @@ M.config = function()
         lualine_c = {},
         lualine_x = {},
         lualine_y = {'filetype'},
-        lualine_z = {}
+        lualine_z = {'location'}
       },
 
       extensions = {}

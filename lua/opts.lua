@@ -17,6 +17,9 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.smartindent = true
 
+vim.cmd [[set list listchars=tab:→\ ,extends:⟫,precedes:⟪,nbsp:·,trail:⁐,space:⋅,eol:⁋]]
+vim.cmd [[set list]]
+
 vim.opt.scrolloff=4
 vim.opt.sidescrolloff=4
 
@@ -34,7 +37,7 @@ vim.o.equalalways = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.laststatus = 3 -- Makes the statusbar window-wide and not isoldated to a buffer
-vim.cmd([[set winbar=%y%=%r\ %f\ %m%=%l\:%L]])
+-- vim.cmd([[set winbar=%y%=%r\ %f\ %m%=%l\:%L]]) -- A winbar layout showing status, location, etc per file replaced with lualine
 
 -- Folds
 vim.opt.foldmethod = 'expr'
@@ -71,6 +74,3 @@ vim.cmd([[set shellquote= shellxquote=]])
 
 -- Configure some filetype redirects for syntax highlighting
 vim.cmd([[au BufReadPost *.xaml set syntax=xml]])
-
-vim.cmd [[set list listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:⋅,eol:↴]]
-vim.cmd [[set list]]

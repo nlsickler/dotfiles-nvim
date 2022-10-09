@@ -28,7 +28,7 @@ M.loadPlugins = function()
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
     use 'moll/vim-bbye' --Closes buffers without modifying splits, part of the mappings
-    -- use 'lewis6991/impatient.nvim' -- Plugin loadtime profiler :LuaCacheProfile to see results
+   -- use 'lewis6991/impatient.nvim' -- Plugin loadtime profiler :LuaCacheProfile to see results
 
     -- Graphical/Layout enhancements
     use {'rcarriga/nvim-notify', config = function() require('plugin.notify').config() end } -- Show notification messages
