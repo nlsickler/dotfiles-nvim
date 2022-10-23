@@ -55,7 +55,7 @@ if wkMod.loaded then
       ["<leader>"] = {
         name = "Plugin Commands",
         k = {'<cmd>nohl<cr>', 'Hide highlights'},
-        m = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
+        ["wm"] = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
         ["?"] = {'<cmd>Legendary<cr>', 'Legendary - Show Window'},
         --["ss"] = {'<cmd>Telescope aerial<CR>', 'Symbols Search'},
         ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline - Toggle'},
@@ -94,7 +94,7 @@ if wkMod.loaded then
         }, -- LSP Commands
         b = {
           name = 'Buffer Commands',
-          d = {'<cmd>Bdelete<CR>', 'bbye - Close Buffer'},
+          d = {'<cmd>lua MiniBufremove.delete(0, true)<CR>', 'Mini - Close Buffer'},
           s = {'<cmd>BufferLineSortByDirectory<CR>', 'BufferLine - Sort Buffers'},
           m = {'<cmd>JABSOpen<CR>', 'JABS - Manage buffers'},
           --[[ ['1'] = {'<Plug>(cokeline-focus-1)', 'Jump to Buffer 1'},
@@ -125,6 +125,11 @@ if wkMod.loaded then
           i = {'<cmd>lua require("dap").step_in()<cr>', 'DAP - Step Into'},
           r = {'<cmd>lua require("dap").repl.open()<cr>', 'DAP - Open REPL'},
         },
+
+        m = {
+          name = 'Mini',
+          m = {'<cmd>lua MiniMap.toggle()<cr>', 'Mini - Toggle Map'}
+        }
       }
     })
   end

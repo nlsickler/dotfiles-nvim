@@ -27,7 +27,6 @@ M.loadPlugins = function()
     use 'psliwka/vim-smoothie' -- Scrolling enhancements
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
-    use 'moll/vim-bbye' --Closes buffers without modifying splits, part of the mappings
    -- use 'lewis6991/impatient.nvim' -- Plugin loadtime profiler :LuaCacheProfile to see results
 
     -- Graphical/Layout enhancements
@@ -97,8 +96,10 @@ M.loadPlugins = function()
     use { 'rebelot/kanagawa.nvim', config = function() require('plugin.cs-kanagawa').config() end, after = 'colorscheme-tweaks.nvim' }
     use { 'projekt0n/github-nvim-theme', config = function() require('plugin.cs-github').config() end, after = 'colorscheme-tweaks.nvim'}
     use { 'lukas-reineke/indent-blankline.nvim', config = function() require('plugin.indent-blankline').config() end }
+    use { 'EdenEast/nightfox.nvim', config = function() require('plugin.cs-nightfox').config() end, after = 'colorscheme-tweaks.nvim' }
 
     -- # Plugins in test
+    use { 'echasnovski/mini.nvim', config = function() require('plugin.mini').config() end, after = 'nvim-notify' }
     use {
       "folke/noice.nvim",
       event = "VimEnter",

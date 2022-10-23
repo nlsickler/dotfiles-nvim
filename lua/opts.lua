@@ -26,6 +26,7 @@ vim.opt.sidescrolloff=4
 --Mouse Settings
 vim.opt.hlsearch = true
 vim.opt.mouse = 'a'
+-- vim.opt.mousemodel = 'extend'
 vim.opt.ruler = true
 
 -- Window Settings
