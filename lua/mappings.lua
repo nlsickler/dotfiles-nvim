@@ -19,8 +19,7 @@ if wkMod.loaded then
     })
 
     wk.register({
-
-      [";"] = { ":", {mode = "nv" } },
+      [";"] = { ":", {mode = "nv" }, "Remap ; to start a command" },
       ["ghp"] = {'<Plug>(GitGutterPreviewHunk)', "GitGutter - Preview Diff Under Cursor"},
 
       ["<C-N>"] = {'<cmd>NeoTreeShowToggle<CR>', 'NeoTree - Toggle'},

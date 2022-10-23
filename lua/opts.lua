@@ -54,7 +54,7 @@ vim.opt.showmode = false
 vim.opt.updatetime = 300 --faster completion/highlighting 4000ms default
 vim.opt.history = 50
 vim.opt.helplang = 'en'
-vim.opt.lazyredraw = true -- Prevents redrawing the screen while executing macros :redraw will force an update
+-- vim.opt.lazyredraw = true -- Prevents redrawing the screen while executing macros :redraw will force an update
 vim.opt.autochdir = false
 vim.opt.spell = false
 vim.opt.belloff = 'all'
@@ -71,6 +71,7 @@ vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Comman
 vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 vim.cmd([[set shellquote= shellxquote=]])
+vim.cmd([[set guifont=LiterationMono\ NF:h11]])
 
 -- Configure some filetype redirects for syntax highlighting
 vim.cmd([[au BufReadPost *.xaml set syntax=xml]])
