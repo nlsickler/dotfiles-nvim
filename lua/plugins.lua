@@ -30,7 +30,7 @@ M.loadPlugins = function()
    -- use 'lewis6991/impatient.nvim' -- Plugin loadtime profiler :LuaCacheProfile to see results
 
     -- Graphical/Layout enhancements
-    use {'rcarriga/nvim-notify', config = function() require('plugin.notify').config() end } -- Show notification messages
+    -- use {'rcarriga/nvim-notify', config = function() require('plugin.notify').config() end } -- Show notification messages
     use { 'chentoast/marks.nvim', config = function() require('marks').setup() end } -- Add marks to the sign column
     use { 'akinsho/bufferline.nvim', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'kevinhwang91/nvim-bqf', config = function() require('plugin.bqf').config() end, after = {'nvim-notify', 'fzf', 'nvim-treesitter' } } -- Enhances the quickfix menu with previews, treesitter, and more
@@ -49,8 +49,10 @@ M.loadPlugins = function()
     use { 'matbme/JABS.nvim', config = function() require('jabs').setup() end } -- Just Another Buffer Switcher - shows buffers in a pop-up allowing them to be swtiched, deleted, etc.
 
     -- Git
-    use 'airblade/vim-gitgutter' -- Adds git information to gutter
+    use {'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
     use 'tpope/vim-fugitive'
+
+    -- use 'airblade/vim-gitgutter' -- Adds git information to gutter
 
     -- Programming
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', after = 'nvim-notify' } -- Core configuration moved to textobjects since they are configured together
@@ -100,6 +102,7 @@ M.loadPlugins = function()
 
     -- # Plugins in test
     use { 'echasnovski/mini.nvim', config = function() require('plugin.mini').config() end, after = 'nvim-notify' }
+
     use {
       "folke/noice.nvim",
       event = "VimEnter",

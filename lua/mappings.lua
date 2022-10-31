@@ -21,7 +21,6 @@ if wkMod.loaded then
     wk.register({
       [";"] = { ":", {mode = "nv" }, "Remap ; to start a command" },
       ["ghp"] = {'<Plug>(GitGutterPreviewHunk)', "GitGutter - Preview Diff Under Cursor"},
-
       ["<C-N>"] = {'<cmd>NeoTreeShowToggle<CR>', 'NeoTree - Toggle'},
 
       ["<C-H>"] = {'<C-W><C-H>', 'Switch split left'},
@@ -57,7 +56,6 @@ if wkMod.loaded then
         k = {'<cmd>nohl<cr>', 'Hide highlights'},
         ["wm"] = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
         ["?"] = {'<cmd>Legendary<cr>', 'Legendary - Show Window'},
-        --["ss"] = {'<cmd>Telescope aerial<CR>', 'Symbols Search'},
         ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline - Toggle'},
         ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},
         ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm - Toggle'},

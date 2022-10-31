@@ -72,7 +72,7 @@ vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Comman
 vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 vim.cmd([[set shellquote= shellxquote=]])
-vim.cmd([[set guifont=LiterationMono\ NF:h11]])
+vim.cmd([[set guifont=LiterationMono\ NF:h14]])
 
 -- Configure some filetype redirects for syntax highlighting
 vim.cmd([[au BufReadPost *.xaml set syntax=xml]])

@@ -21,7 +21,7 @@ M.config = function()
 
     mcMod.module.setup({
       ensure_installed = {
-        "lua-language-server",
+        "sumneko_lua",
         "omnisharp",
       },
       automatic_installation = true,
@@ -36,7 +36,13 @@ M.config = function()
 
       ["omnisharp"] = function ()
         require("lspconfig")["omnisharp"].setup {
-          root_dir = require('lspconfig/util').root_pattern('*.sln')
+          root_dir = require('lspconfig/util').root_pattern("*.sln", "*.csproj", ".git")
+        }
+      end,
+
+      ["omnisharp_mono"] = function ()
+        require("lspconfig")["omnisharp_mono"].setup {
+          root_dir = require('lspconfig/util').root_pattern("*.sln", "*.csproj", ".git")
         }
       end,
 

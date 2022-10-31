@@ -16,7 +16,7 @@ M.config = function()
     local function update_audio_status()
       LL_audio_lastUpdate = os.time()
 
-      local track_info = spotifyHelper.get_media_info()
+      local track_info = spotifyHelper.get_track_info()
 
       if track_info.is_playing then
         LL_audio_retry_interval = 10000
