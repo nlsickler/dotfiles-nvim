@@ -18,7 +18,7 @@ M.loadPlugins = function()
     use {'wbthomason/packer.nvim'}
 
     -- General functionality tweaks
-    use { 'sitiom/nvim-numbertoggle', config = function() require('numbertoggle').setup() end } -- Switches to relative number in normal mode for the active buffer
+    use { 'sitiom/nvim-numbertoggle' } -- Switches to relative number in normal mode for the active buffer
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
     use { 'folke/which-key.nvim', config = function() require('plugin.whichkey').config() end } -- Key mapping manager and reminder
@@ -30,7 +30,7 @@ M.loadPlugins = function()
    -- use 'lewis6991/impatient.nvim' -- Plugin loadtime profiler :LuaCacheProfile to see results
 
     -- Graphical/Layout enhancements
-    -- use {'rcarriga/nvim-notify', config = function() require('plugin.notify').config() end } -- Show notification messages
+    use {'rcarriga/nvim-notify', config = function() require('plugin.notify').config() end } -- Show notification messages
     use { 'chentoast/marks.nvim', config = function() require('marks').setup() end } -- Add marks to the sign column
     use { 'akinsho/bufferline.nvim', config = function() require('plugin.bufferline').config() end, after = 'nvim-notify', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'kevinhwang91/nvim-bqf', config = function() require('plugin.bqf').config() end, after = {'nvim-notify', 'fzf', 'nvim-treesitter' } } -- Enhances the quickfix menu with previews, treesitter, and more
@@ -78,7 +78,11 @@ M.loadPlugins = function()
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use { 'hrsh7th/nvim-cmp', config = function() require('plugin.nvim-cmp').config() end, after = 'nvim-notify' }
+
+    use { 'ray-x/lsp_signature.nvim', config = function() require('plugin.lsp-signature').config() end, after = 'nvim-cmp' }
+
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
+
     -- Snippets for final step of completion (a snippet engine is required by nvim-cmp)
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
@@ -103,7 +107,7 @@ M.loadPlugins = function()
     -- # Plugins in test
     use { 'echasnovski/mini.nvim', config = function() require('plugin.mini').config() end, after = 'nvim-notify' }
 
-    use {
+    --[[ use {
       "folke/noice.nvim",
       event = "VimEnter",
       config = function()
@@ -115,7 +119,7 @@ M.loadPlugins = function()
         "rcarriga/nvim-notify",
         "hrsh7th/nvim-cmp",
       }
-    }
+    } ]]
 
     -- Force a sync if first installed
     if packer_bootstrap then
