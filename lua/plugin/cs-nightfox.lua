@@ -5,12 +5,12 @@ local M = {}
 M.config = function()
 
 
-  vim.cmd([[colorscheme nightfox]])
+  -- vim.cmd([[colorscheme nightfox]])
 
   local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
 
   if(colorTweaks.loaded) then
-    vim.cmd[[IncreaseContrast 0.2]]
+    -- vim.cmd[[IncreaseContrast 0.2]]
   end
 
 end

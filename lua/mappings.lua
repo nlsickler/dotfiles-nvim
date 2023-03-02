@@ -1,24 +1,18 @@
 local modLoader = require('utils.moduleLoader')
 
 local wkMod = modLoader.loadModule('which-key')
-local legendMod = modLoader.loadModule('legendary')
 
 if wkMod.loaded then
-  local wk = wkMod.module
+  local wkMod = wkMod.module
 
   vim.g.mapleader = ' '
 
-  if legendMod.loaded then
-    -- Done here to ensure it is loaded before which-key mappings are registered
-    legendMod.module.setup()
-  end
-
-  if nil ~= wk then
-    wk.register({
+  if nil ~= wkMod then
+    wkMod.register({
       ["<leader>"] = {'<nop>', 'NOOP'},
     })
 
-    wk.register({
+    wkMod.register({
       [";"] = { ":", {mode = "nv" }, "Remap ; to start a command" },
       ["ghp"] = {'<Plug>(GitGutterPreviewHunk)', "GitGutter - Preview Diff Under Cursor"},
       ["<C-N>"] = {'<cmd>NeoTreeShowToggle<CR>', 'NeoTree - Toggle'},
@@ -55,7 +49,6 @@ if wkMod.loaded then
         name = "Plugin Commands",
         k = {'<cmd>nohl<cr>', 'Hide highlights'},
         ["wm"] = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
-        ["?"] = {'<cmd>Legendary<cr>', 'Legendary - Show Window'},
         ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline - Toggle'},
         ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},
         ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm - Toggle'},

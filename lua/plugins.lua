@@ -22,8 +22,6 @@ M.loadPlugins = function()
     use 'tpope/vim-sensible' -- Some general set calls to configure vim (mostly `set`s)
     use {'junegunn/fzf', run = 'fzf#install()' } -- Fuzzy File Finder
     use { 'folke/which-key.nvim', config = function() require('plugin.whichkey').config() end } -- Key mapping manager and reminder
-    use { 'stevearc/dressing.nvim', config = function() require('dressing').setup() end } -- Used for legendary
-    use { 'mrjones2014/legendary.nvim' } -- Configured as part of mappings.lua
     use 'psliwka/vim-smoothie' -- Scrolling enhancements
     use 'jghauser/mkdir.nvim' --Allows automatic creation of folders in save path
     use { 'zakharykaplan/nvim-retrail', config = function() require('plugin.retrail').config() end } -- Removes trailing whitespace from lines
@@ -103,6 +101,9 @@ M.loadPlugins = function()
     use { 'projekt0n/github-nvim-theme', config = function() require('plugin.cs-github').config() end, after = 'colorscheme-tweaks.nvim'}
     use { 'lukas-reineke/indent-blankline.nvim', config = function() require('plugin.indent-blankline').config() end }
     use { 'EdenEast/nightfox.nvim', config = function() require('plugin.cs-nightfox').config() end, after = 'colorscheme-tweaks.nvim' }
+    use 'Yazeed1s/oh-lucy.nvim'
+    use 'Tsuzat/NeoSolarized.nvim'
+    use 'savq/melange-nvim'
 
     -- # Plugins in test
     use { 'echasnovski/mini.nvim', config = function() require('plugin.mini').config() end, after = 'nvim-notify' }

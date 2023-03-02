@@ -10,6 +10,7 @@ M.config = function()
 
   if masonMod.loaded and mcMod.loaded and lcMod.loaded then
     masonMod.module.setup({
+      log_level = vim.log.levels.DEBUG,
       ui = {
         icons = {
           package_installed = "✓",
@@ -21,7 +22,8 @@ M.config = function()
 
     mcMod.module.setup({
       ensure_installed = {
-        "sumneko_lua",
+        "lua_ls",
+        "jdtls",
         "omnisharp",
       },
       automatic_installation = true,
@@ -46,8 +48,8 @@ M.config = function()
         }
       end,
 
-      ["sumneko_lua"] = function()
-        require("lspconfig")["sumneko_lua"].setup {
+      ["lua_ls"] = function()
+        require("lspconfig")["lua_ls"].setup {
           settings = {
             Lua = {
               diagnostics = {
@@ -56,10 +58,8 @@ M.config = function()
             }
           }
         }
-      end
+      end,
     }
-
-
   end
 end
 
