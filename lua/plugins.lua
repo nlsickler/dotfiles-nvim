@@ -83,7 +83,7 @@ M.buildPluginTable = function()
     { 'folke/trouble.nvim', init = function() require('plugin.trouble').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     { 'mfussenegger/nvim-dap', init = function() require('plugin.dap').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     { 'gpanders/editorconfig.nvim', event = "VeryLazy" }, -- Makes nvim respect .editorconfig files
-    { 'simrat39/symbols-outline.nvim', init = function() require('plugin.symbols-outline').config() end, dependencies = 'nvim-notify', event = "VeryLazy", }
+    { 'simrat39/symbols-outline.nvim', init = function() require('plugin.symbols-outline').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
   }
 
   local codeCompletion = {
