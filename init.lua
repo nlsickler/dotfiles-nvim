@@ -6,6 +6,6 @@ if impatientMod.loaded then
   impatientMod.module.enable_profile()
 end
 
-require('plugins').loadPlugins() -- Load Packer config
 require('opts') -- Load opts first due to dependencies on termguicolors
+require('plugins').loadPlugins() -- Load Packer config
 --require('mappings') -- Loading mappings has moved into lua/plugins/whichkey.lua
