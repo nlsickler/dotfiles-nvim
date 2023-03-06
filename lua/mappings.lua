@@ -117,11 +117,6 @@ if wkMod.loaded then
           i = {'<cmd>lua require("dap").step_in()<cr>', 'DAP - Step Into'},
           r = {'<cmd>lua require("dap").repl.open()<cr>', 'DAP - Open REPL'},
         },
-
-        m = {
-          name = 'Mini',
-          m = {'<cmd>lua MiniMap.toggle()<cr>', 'Mini - Toggle Map'}
-        }
       }
     })
   end
