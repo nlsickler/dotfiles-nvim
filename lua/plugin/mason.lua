@@ -59,6 +59,11 @@ M.config = function()
           }
         }
       end,
+      ["jdtls"] = function()
+        require("lspconfig")["jdtls"].setup {
+          root_dir = require('lspconfig/util').root_pattern(".gradle", ".git")
+        }
+      end,
     }
   end
 end

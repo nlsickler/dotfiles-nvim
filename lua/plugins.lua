@@ -72,7 +72,7 @@ M.buildPluginTable = function()
     { 'nvim-treesitter/nvim-treesitter-textobjects', init = function() require('plugin.treesitter.core').config() end, dependencies = 'nvim-treesitter', event = "VeryLazy",},
     { 'nvim-treesitter/nvim-treesitter-context', init = function() require('treesitter-context').setup() end, dependencies = 'nvim-treesitter', event = "VeryLazy", },
 
-    "williamboman/mason.nvim",
+    { "williamboman/mason.nvim", build = ":MasonUpdate" },
     { "williamboman/mason-lspconfig.nvim", dependencies = "mason.nvim", event = "VeryLazy",  },
     { "neovim/nvim-lspconfig", init = function() require("plugin.mason").config() end, dependencies = "mason-lspconfig.nvim", event = "VeryLazy",  },
 

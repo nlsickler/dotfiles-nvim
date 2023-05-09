@@ -50,6 +50,7 @@ if wkMod.loaded then
         k = {'<cmd>nohl<cr>', 'Hide highlights'},
         ["wm"] = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
         ["we"] = {'<cmd>WindowsEqualize<cr>', 'Windows - Equalize Windows'},
+        ["wt"] = {'<cmd>WindowsToggleAutowidth<cr>', 'Windows - Equalize Windows'},
         ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline - Toggle'},
         ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},
         ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm - Toggle'},
