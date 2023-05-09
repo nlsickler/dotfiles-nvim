@@ -1,9 +1,9 @@
 local modLoader = require('utils.moduleLoader')
 
-local wkMod = modLoader.loadModule('which-key')
+local wkLoader = modLoader.loadModule('which-key')
 
-if wkMod.loaded then
-  local wkMod = wkMod.module
+if wkLoader.loaded then
+  local wkMod = wkLoader.module
 
   vim.g.mapleader = ' '
 
@@ -51,8 +51,8 @@ if wkMod.loaded then
         ["wm"] = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
         ["we"] = {'<cmd>WindowsEqualize<cr>', 'Windows - Equalize Windows'},
         ["wt"] = {'<cmd>WindowsToggleAutowidth<cr>', 'Windows - Equalize Windows'},
-        ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline - Toggle'},
-        ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},
+        -- ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline - Toggle'},
+        -- ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},
         ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm - Toggle'},
         t = {
           name = "Telescope Commands",
@@ -110,14 +110,14 @@ if wkMod.loaded then
           ['9'] = {'<Cmd>BufferLineGoToBuffer 9<CR>', 'BufferLine - Jump to Buffer 9'},
         },
 
-        d = {
+        --[[ d = {
           name = 'Debug Adapter Commands',
           b = {'<cmd>lua require("dap").toggle_breakpoint()<cr>', 'DAP - Toggle Breakpoint'},
           c = {'<cmd>lua require("dap").continue()<cr>', 'DAP - Continue Execution'},
           o = {'<cmd>lua require("dap").step_over()<cr>', 'DAP - Step Over'},
           i = {'<cmd>lua require("dap").step_in()<cr>', 'DAP - Step Into'},
           r = {'<cmd>lua require("dap").repl.open()<cr>', 'DAP - Open REPL'},
-        },
+        }, ]]
       }
     })
   end
