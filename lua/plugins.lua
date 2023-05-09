@@ -35,7 +35,7 @@ M.buildPluginTable = function()
     "sitiom/nvim-numbertoggle",
     "tpope/vim-sensible",
     { "folke/which-key.nvim", init = function() require('plugin.whichkey').config() end, lazy = false },
-    "psliwka/vim-smoothie",
+    "psliwka/vim-smoothie", -- Smooth Scrolling
     "jghauser/mkdir.nvim",
     { 'zakharykaplan/nvim-retrail', init = function() require('plugin.retrail').config() end, event = "VeryLazy" },
     { 'lukas-reineke/indent-blankline.nvim', init = function() require('plugin.indent-blankline').config() end },
