@@ -38,6 +38,7 @@ M.buildPluginTable = function()
     "psliwka/vim-smoothie",
     "jghauser/mkdir.nvim",
     { 'zakharykaplan/nvim-retrail', init = function() require('plugin.retrail').config() end, event = "VeryLazy" },
+    { 'lukas-reineke/indent-blankline.nvim', init = function() require('plugin.indent-blankline').config() end },
   }
 
   local graphicalEnhance = {
@@ -78,10 +79,10 @@ M.buildPluginTable = function()
 
     { 'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter', event = "VeryLazy", }, -- Different colored closing brackets, etc.
     { 'windwp/nvim-autopairs', init = function() require('plugin.autopairs').config() end, dependencies = 'nvim-notify', event = "VeryLazy", }, -- Automically close parens, quotes in insert
-    { 'numToStr/Comment.nvim', init = function() require('plugin.comment').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     { 'folke/trouble.nvim', init = function() require('plugin.trouble').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     { 'gpanders/editorconfig.nvim', event = "VeryLazy" }, -- Makes nvim respect .editorconfig files
 
+    -- { 'numToStr/Comment.nvim', init = function() require('plugin.comment').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     -- { 'norcalli/nvim-colorizer.lua', init = function() require('plugin.colorizer').config() end, dependencies = 'nvim-notify', event = "VeryLazy", }, -- Changes background color of color codes
     -- { 'mfussenegger/nvim-dap', init = function() require('plugin.dap').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     -- { 'simrat39/symbols-outline.nvim', init = function() require('plugin.symbols-outline').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
@@ -110,21 +111,11 @@ M.buildPluginTable = function()
 
     --Color Schemes
     { 'folke/tokyonight.nvim', init = function() require('plugin.cs-tokyonight').config() end, dependencies = 'colorscheme-tweaks.nvim'},
-    { 'rafamadriz/neon', init = function() require('plugin.cs-neon').config() end },
-    { 'marko-cerovac/material.nvim', init = function() require('plugin.cs-material').config() end },
-    { 'Th3Whit3Wolf/one-nvim', init = function() require('plugin.cs-onenvim').config() end, dependencies = 'colorscheme-tweaks.nvim' },
-    { 'Th3Whit3Wolf/space-nvim', init = function() require('plugin.cs-spacenvim').config() end },
-    { 'ray-x/aurora', init = function() require('plugin.cs-aurora').config() end },
-    { 'tanvirtin/monokai.nvim', init = function() require('plugin.cs-monokai').config() end },
     { 'B4mbus/oxocarbon-lua.nvim', init = function() require('plugin.cs-oxocarbon').config() end, dependencies = 'colorscheme-tweaks.nvim' },
     { 'catppuccin/nvim', init = function() require('plugin.cs-catppuccin').config() end, dependencies = 'colorscheme-tweaks.nvim' },
     { 'rebelot/kanagawa.nvim', init = function() require('plugin.cs-kanagawa').config() end, dependencies = 'colorscheme-tweaks.nvim' },
-    { 'projekt0n/github-nvim-theme', init = function() require('plugin.cs-github').config() end, dependencies = 'colorscheme-tweaks.nvim'},
-    { 'lukas-reineke/indent-blankline.nvim', init = function() require('plugin.indent-blankline').config() end },
     { 'EdenEast/nightfox.nvim', init = function() require('plugin.cs-nightfox').config() end, dependencies = 'colorscheme-tweaks.nvim' },
     'Yazeed1s/oh-lucy.nvim',
-    'Tsuzat/NeoSolarized.nvim',
-    'savq/melange-nvim',
   }
 
   local testPlugins = {
