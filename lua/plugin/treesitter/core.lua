@@ -4,6 +4,11 @@ local M = {}
 
 M.config = function()
   local treesitterConf = mLoader.loadModule('nvim-treesitter.configs')
+  local treesitterInst = mLoader.loadModule('nvim-treesitter.install')
+
+  if treesitterInst.loaded then
+      treesitterInst.module.compilers = { "gcc" }
+  end
 
   if treesitterConf.loaded then
     require('nvim-treesitter.install').compilers = {'clang'}
