@@ -4,17 +4,19 @@ local M = {}
 
 M.config = function()
 
---   if queryMod.loaded then
+  local queryMod = modLoader.loadModule('vim.treesitter.query')
 
---     local folds = [[ [
---   (function_declaration)
---   (function_definition)
---   (table_constructor)
--- ] @fold ]]
+  if queryMod.loaded then
 
---     queryMod.module.set("lua", 'folds', folds)
+    local folds = [[ [
+  (function_declaration)
+  (function_definition)
+  (table_constructor)
+] @fold ]]
 
---  end
+    queryMod.module.set("lua", 'folds', folds)
+
+ end
 end
 
 return M
