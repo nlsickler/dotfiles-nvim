@@ -115,6 +115,9 @@ M.buildPluginTable = function()
     { 'catppuccin/nvim', init = function() require('plugin.cs-catppuccin').config() end, dependencies = 'colorscheme-tweaks.nvim' },
     { 'rebelot/kanagawa.nvim', init = function() require('plugin.cs-kanagawa').config() end, dependencies = 'colorscheme-tweaks.nvim' },
     { 'EdenEast/nightfox.nvim', init = function() require('plugin.cs-nightfox').config() end, dependencies = 'colorscheme-tweaks.nvim' },
+    { 'bluz71/vim-moonfly-colors', init = function() require('plugin.cs-moonfly').config() end, dependencies = 'colorscheme-tweaks.nvim' },
+    'jacoborus/tender.vim',
+    'bluz71/vim-nightfly-colors',
     'Yazeed1s/oh-lucy.nvim',
   }
 

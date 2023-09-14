@@ -8,7 +8,7 @@ M.config = function()
 
   if queryMod.loaded then
 
-    local folds = [[ 
+    local folds = [[
 body: [
   (declaration_list)
   (switch_body)
@@ -27,7 +27,7 @@ initializer: [
 (block) @fold
 ]]
 
-    queryMod.module.set_query("c_sharp", 'folds', folds)
+    queryMod.module.set("c_sharp", 'folds', folds)
   end
 end
 

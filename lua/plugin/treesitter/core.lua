@@ -7,7 +7,7 @@ M.config = function()
   local treesitterInst = mLoader.loadModule('nvim-treesitter.install')
 
   if treesitterInst.loaded then
-      treesitterInst.module.compilers = { "gcc" }
+      treesitterInst.module.compilers = { "clang" }
   end
 
   if treesitterConf.loaded then

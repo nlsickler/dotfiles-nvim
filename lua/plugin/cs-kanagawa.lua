@@ -4,14 +4,14 @@ local M = {}
 
 M.config = function()
 
-    vim.cmd([[colorscheme kanagawa]])
+    -- vim.cmd([[colorscheme kanagawa]])
 
-    local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
+    -- local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
 
-    if colorTweaks.loaded then
-        vim.cmd([[IncreaseContrast 0.05]])
+    -- if colorTweaks.loaded then
+    --     vim.cmd([[IncreaseContrast 0.05]])
 
-    end
+    -- end
 
 end
 

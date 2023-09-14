@@ -15,7 +15,7 @@ if wkLoader.loaded then
     wkMod.register({
       [";"] = { ":", {mode = "nv" }, "Remap ; to start a command" },
       ["ghp"] = {'<Plug>(GitGutterPreviewHunk)', "GitGutter - Preview Diff Under Cursor"},
-      ["<C-N>"] = {'<cmd>NeoTreeShowToggle<CR>', 'NeoTree - Toggle'},
+      ["<C-N>"] = {'<cmd>Neotree toggle<CR>', 'NeoTree - Toggle'},
 
       ["<C-H>"] = {'<C-W><C-H>', 'Switch split left'},
       ["<C-J>"] = {'<C-W><C-J>', 'Switch split Down'},
@@ -42,7 +42,7 @@ if wkLoader.loaded then
         i = {':lua vim.lsp.buf.implementation()<cr>', 'LSP - Implementation'},
         r = {':lua vim.lsp.buf.references()<cr>', 'LSP - References'},
         t = {':lua vim.lsp.buf.type_definition()<cr>', 'LSP - Type Def'},
-        --s = {'<cmd>NeoTreeFloat git_status<CR>', 'Git status is floating window'} -- Disabling because it always shows an empty git status
+        --s = {'<cmd>Neotree float git_status<CR>', 'Git status is floating window'} -- Disabling because it always shows an empty git status
       },
 
       ["<leader>"] = {

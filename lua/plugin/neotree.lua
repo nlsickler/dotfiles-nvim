@@ -16,7 +16,6 @@ M.config = function()
     -- "NC" is a special style that works well with NormalNC set
     popup_border_style = "NC", -- "double", "none", "rounded", "shadow", "single" or "solid"
     use_popups_for_input = true, -- If false, inputs will use vim.ui.input() instead of custom floats.
-    close_floats_on_escape_key = true,
     enable_git_status = true,
     enable_diagnostics = true,
     open_files_in_last_window = true, -- false = open files in top left window
@@ -87,7 +86,7 @@ M.config = function()
       -- "open_split",  -- netrw disabled, opening a directory opens within the
       -- window like netrw would, regardless of window.position
       -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-      follow_current_file = true, -- This will find and focus the file in the active buffer every time
+      follow_current_file = {enabled = true}, -- This will find and focus the file in the active buffer every time
       -- the current file is changed while the tree is open.
       use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
       -- instead of relying on nvim autocmd events.
