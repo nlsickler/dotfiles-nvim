@@ -4,7 +4,7 @@ local M = {}
 
 M.config = function()
 
-  vim.cmd([[colorscheme oxocarbon-lua]])
+  -- vim.cmd([[colorscheme oxocarbon-lua]])
 
   local colorTweaks = modLoader.loadModule('colorscheme-tweaks.core')
 

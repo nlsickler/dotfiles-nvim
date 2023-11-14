@@ -119,6 +119,10 @@ M.buildPluginTable = function()
     'jacoborus/tender.vim',
     'bluz71/vim-nightfly-colors',
     'Yazeed1s/oh-lucy.nvim',
+    'olivercederborg/poimandres.nvim',
+    'NTBBloodbath/doom-one.nvim',
+    'kartikp10/noctis.nvim',
+    'LunarVim/onedarker.nvim',
   }
 
   local testPlugins = {

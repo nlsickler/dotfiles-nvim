@@ -33,23 +33,25 @@ M.config = function()
     -- Largely, this allows for servers to be used without having to update the config for each server (meaning they can be used without restarting nvim)
     require("mason-lspconfig").setup_handlers {
       function (server_name)
-        require("lspconfig")[server_name].setup {}
+        lcMod.module[server_name].setup {
+          root_dir = function() return require('lspconfig/util').find_git_ancestor(vim.fn.getcwd()) end,
+        }
       end,
 
       ["omnisharp"] = function ()
-        require("lspconfig")["omnisharp"].setup {
+        lcMod.module["omnisharp"].setup {
           root_dir = require('lspconfig/util').root_pattern("*.sln", "*.csproj", ".git")
         }
       end,
 
       ["omnisharp_mono"] = function ()
-        require("lspconfig")["omnisharp_mono"].setup {
+        lcMod.module["omnisharp_mono"].setup {
           root_dir = require('lspconfig/util').root_pattern("*.sln", "*.csproj", ".git")
         }
       end,
 
       ["lua_ls"] = function()
-        require("lspconfig")["lua_ls"].setup {
+        lcMod.module["lua_ls"].setup {
           settings = {
             Lua = {
               diagnostics = {
@@ -59,11 +61,12 @@ M.config = function()
           }
         }
       end,
-      ["jdtls"] = function()
-        require("lspconfig")["jdtls"].setup {
-          root_dir = require('lspconfig/util').root_pattern(".gradle", ".git")
-        }
-      end,
+
+      -- ["jdtls"] = function()
+      --   lcMod.module["jdtls"].setup {
+      --     root_dir = function() return require('lspconfig/util').find_git_ancestor(vim.fn.getcwd()) end,
+      --   }
+      -- end,
     }
   end
 end
