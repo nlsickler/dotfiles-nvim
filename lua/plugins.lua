@@ -49,7 +49,7 @@ M.buildPluginTable = function()
     { 'akinsho/toggleterm.nvim', init = function() require('plugin.toggleterm').config() end, dependencies = 'nvim-notify' },
     'ryanoasis/vim-devicons', -- Adds git icons to NERDTree, lightline, vim-startify, etc
     { "kylechui/nvim-surround", init = function() require("nvim-surround").setup() end }, -- Vim-Surround, but rewritten for neovim (supporting TreeSitter)
-    { 'folke/twilight.nvim', init = function() require('plugin.twilight').config() end, dependencies = {'nvim-notify', 'nvim-treesitter' } }, -- Allows disabling color coding outside of current scope (using treesitter)
+    -- { 'folke/twilight.nvim', init = function() require('plugin.twilight').config() end, dependencies = {'nvim-notify', 'nvim-treesitter' } }, -- Allows disabling color coding outside of current scope (using treesitter)
     { 'nvim-lualine/lualine.nvim', init = function() require('plugin.lualine').config() end }, -- Powerline/Airline alterative for bottom status bar
     { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, init = function() require('plugin.windows').config() end }, -- Automically resizes windows
   }
@@ -77,7 +77,7 @@ M.buildPluginTable = function()
     { "williamboman/mason-lspconfig.nvim", dependencies = "mason.nvim", event = "VeryLazy",  },
     { "neovim/nvim-lspconfig", init = function() require("plugin.mason").config() end, dependencies = "mason-lspconfig.nvim", event = "VeryLazy",  },
 
-    { 'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter', event = "VeryLazy", }, -- Different colored closing brackets, etc.
+    -- { 'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter', event = "VeryLazy", }, -- Different colored closing brackets, etc.
     { 'windwp/nvim-autopairs', init = function() require('plugin.autopairs').config() end, dependencies = 'nvim-notify', event = "VeryLazy", }, -- Automically close parens, quotes in insert
     { 'folke/trouble.nvim', init = function() require('plugin.trouble').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     { 'gpanders/editorconfig.nvim', event = "VeryLazy" }, -- Makes nvim respect .editorconfig files
@@ -115,14 +115,7 @@ M.buildPluginTable = function()
     { 'catppuccin/nvim', init = function() require('plugin.cs-catppuccin').config() end, dependencies = 'colorscheme-tweaks.nvim' },
     { 'rebelot/kanagawa.nvim', init = function() require('plugin.cs-kanagawa').config() end, dependencies = 'colorscheme-tweaks.nvim' },
     { 'EdenEast/nightfox.nvim', init = function() require('plugin.cs-nightfox').config() end, dependencies = 'colorscheme-tweaks.nvim' },
-    { 'bluz71/vim-moonfly-colors', init = function() require('plugin.cs-moonfly').config() end, dependencies = 'colorscheme-tweaks.nvim' },
-    'jacoborus/tender.vim',
-    'bluz71/vim-nightfly-colors',
-    'Yazeed1s/oh-lucy.nvim',
-    'olivercederborg/poimandres.nvim',
-    'NTBBloodbath/doom-one.nvim',
-    'kartikp10/noctis.nvim',
-    'LunarVim/onedarker.nvim',
+    { 'bluz71/vim-nightfly-colors', init = function() require('plugin.cs-nightfly').config() end, dependencies = 'colorscheme-tweaks.nvim' },
   }
 
   local testPlugins = {

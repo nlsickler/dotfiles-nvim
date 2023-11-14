@@ -1,7 +1,7 @@
 local modLoader = require('utils.moduleLoader')
 local monokai = require('monokai')
 
-local M = {}
+local M =
 
 M.config = function()
 

@@ -6,7 +6,11 @@ M.config = function()
   local windowsMod = modLoader.loadModule('windows')
 
   if windowsMod.loaded then
-    windowsMod.module.setup()
+    windowsMod.module.setup({
+      autowidth = {
+        enable = false
+      }
+    })
   end
 end
 
