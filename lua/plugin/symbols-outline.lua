@@ -4,9 +4,9 @@ local M = {}
 
 M.config = function()
 
-    local symMod = modLoader.loadModule('symbols-outline')
+    local soMod = modLoader.loadModule('symbols-outline')
 
-    if symMod.loaded then
+    if soMod.loaded then
 
         vim.g.symbols_outline = {
             highlight_hovered_item = true,
@@ -57,11 +57,13 @@ M.config = function()
                 Struct = {icon = "𝓢", hl = "TSType"},
                 Event = {icon = "🗲", hl = "TSType"},
                 Operator = {icon = "+", hl = "TSOperator"},
-                TypeParameter = {icon = "𝙏", hl = "TSParameter"}
+                TypeParameter = {icon = "𝙏", hl = "TSParameter"},
+                autofold_depth = 3,
+                auto_unfold_hover = true,
             }
         }
 
-        symMod.module.setup()
+        soMod.module.setup()
 
     end
 

@@ -59,8 +59,9 @@ M.buildPluginTable = function()
     { 'mhinz/vim-startify', init = function() require('plugin.startify').config() end, dependencies = 'nvim-notify', lazy = false }, -- Dashboard style plugin for the start screen
     { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, init = function() require('plugin.neotree').config() end, lazy = false }, -- File explorer
     { 'matbme/JABS.nvim', init = function() require('jabs').setup() end, event = "VeryLazy" }, -- Just Another Buffer Switcher - shows buffers in a pop-up allowing them to be swtiched, deleted, etc.
+    { "nvim-neorg/neorg", build = ":Neorg sync-parsers", dependencies = "nvim-lua/plenary.nvim", config = function() require('plugin.neorg').config() end },
 
-    -- {'mbbill/undotree', cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" } },
+    {'mbbill/undotree', cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" } },
   }
 
   local gitExtensions = {
@@ -77,15 +78,12 @@ M.buildPluginTable = function()
     { "williamboman/mason-lspconfig.nvim", dependencies = "mason.nvim", event = "VeryLazy",  },
     { "neovim/nvim-lspconfig", init = function() require("plugin.mason").config() end, dependencies = "mason-lspconfig.nvim", event = "VeryLazy",  },
 
-    -- { 'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter/nvim-treesitter', event = "VeryLazy", }, -- Different colored closing brackets, etc.
     { 'windwp/nvim-autopairs', init = function() require('plugin.autopairs').config() end, dependencies = 'nvim-notify', event = "VeryLazy", }, -- Automically close parens, quotes in insert
     { 'folke/trouble.nvim', init = function() require('plugin.trouble').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     { 'gpanders/editorconfig.nvim', event = "VeryLazy" }, -- Makes nvim respect .editorconfig files
 
-    -- { 'numToStr/Comment.nvim', init = function() require('plugin.comment').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
-    -- { 'norcalli/nvim-colorizer.lua', init = function() require('plugin.colorizer').config() end, dependencies = 'nvim-notify', event = "VeryLazy", }, -- Changes background color of color codes
     -- { 'mfussenegger/nvim-dap', init = function() require('plugin.dap').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
-    -- { 'simrat39/symbols-outline.nvim', init = function() require('plugin.symbols-outline').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
+    { 'simrat39/symbols-outline.nvim', init = function() require('plugin.symbols-outline').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
   }
 
   local codeCompletion = {

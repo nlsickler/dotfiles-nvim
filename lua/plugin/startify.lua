@@ -22,7 +22,7 @@ end
 
 
 M.config = function()
-  vim.cmd('autocmd VimLeavePre * lua require("plugin.startify").createSession()')
+  vim.cmd([[autocmd VimLeavePre * lua require("plugin.startify").createSession()]])
 
   if vim.o.filetype == "lazy" then
       vim.cmd.close()

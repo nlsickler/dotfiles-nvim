@@ -6,10 +6,12 @@ if wkLoader.loaded then
   local wkMod = wkLoader.module
 
   vim.g.mapleader = ' '
+  vim.g.maplocalleader = ','
 
   if nil ~= wkMod then
     wkMod.register({
       ["<leader>"] = {'<nop>', 'NOOP'},
+      ["<localleader>"] = {'<nop>', 'NOOP'},
     })
 
     wkMod.register({
@@ -29,8 +31,6 @@ if wkLoader.loaded then
 
       ['<S-h>'] = {'<cmd>BufferLineCyclePrev<CR>', 'BufferLine - Previous Tab'},
       ['<S-l>'] = {'<cmd>BufferLineCycleNext<CR>', 'BufferLine - Next Tab'},
-      -- ['<S-h>'] = {'<Plug>(cokeline-focus-prev)', 'Previous Bufferline Tab'},
-      -- ['<S-l>'] = {'<Plug>(cokeline-focus-next)', 'Previous Bufferline Tab'},
 
       ["<leader>BD"] = {':Bdelete!<CR>', 'bbye - Force close buffer'},
 
@@ -42,7 +42,6 @@ if wkLoader.loaded then
         i = {':lua vim.lsp.buf.implementation()<cr>', 'LSP - Implementation'},
         r = {':lua vim.lsp.buf.references()<cr>', 'LSP - References'},
         t = {':lua vim.lsp.buf.type_definition()<cr>', 'LSP - Type Def'},
-        --s = {'<cmd>Neotree float git_status<CR>', 'Git status is floating window'} -- Disabling because it always shows an empty git status
       },
 
       ["<leader>"] = {
@@ -51,9 +50,17 @@ if wkLoader.loaded then
         ["wm"] = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
         ["we"] = {'<cmd>WindowsEqualize<cr>', 'Windows - Equalize Windows'},
         ["wt"] = {'<cmd>WindowsToggleAutowidth<cr>', 'Windows - Equalize Windows'},
-        -- ["sy"] = {'<cmd>SymbolsOutline<CR>', 'Symbols Outline - Toggle'},
-        -- ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},
+        ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},
         ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm - Toggle'},
+        n = {
+          name = "Global Neorg Commands",
+          i = {'<cmd>Neorg index<cr>', 'Neorg - Index'},
+          n = {'<cmd>Neorg journal today<cr>', 'Neorg - Journal - Today'},
+          t = {'<cmd>Neorg journal tomorrow<cr>', 'Neorg - Journal - Tomorrow'},
+          y = {'<cmd>Neorg journal yesterday<cr>', 'Neorg - Journal - Yesterday'},
+          q = {'<cmd>Neorg toc qflist<cr>', 'Neorg - Table of Contents QuickFix'},
+          x = {'<cmd>Neorg return<cr>', 'Neorg - Return (close)'},
+        },
         t = {
           name = "Telescope Commands",
           f = {'<cmd>lua require(\'telescope.builtin\').find_files()<cr>', 'Telescope - Files'},
@@ -63,7 +70,7 @@ if wkLoader.loaded then
           j = {'<cmd>lua require(\'telescope.builtin\').jumplist()<cr>', 'Telescope - Jumplist'},
           n = {'<cmd>lua require(\'telescope\').extensions.notify.notify()<cr>', 'Telescope - Notify'},
           t = {"<cmd>TroubleToggle<cr>", 'Trouble - Toggle'},
-          w = {"<cmd>Twilight<cr>", "Twilight - Toggle"},
+          -- w = {"<cmd>Twilight<cr>", "Twilight - Toggle"},
           l = {
             name = 'LSP Commands',
             y = {'<cmd>lua require(\'telescope.builtin\').lsp_document_symbols()<cr>', 'Telescope - LSP Document Symbols'},
@@ -90,15 +97,6 @@ if wkLoader.loaded then
           d = {'<cmd>lua MiniBufremove.delete(0, true)<CR>', 'Mini - Close Buffer'},
           s = {'<cmd>BufferLineSortByDirectory<CR>', 'BufferLine - Sort Buffers'},
           m = {'<cmd>JABSOpen<CR>', 'JABS - Manage buffers'},
-          --[[ ['1'] = {'<Plug>(cokeline-focus-1)', 'Jump to Buffer 1'},
-          ['2'] = {'<Plug>(cokeline-focus-2)', 'Jump to Buffer 2'},
-          ['3'] = {'<Plug>(cokeline-focus-3)', 'Jump to Buffer 3'},
-          ['4'] = {'<Plug>(cokeline-focus-4)', 'Jump to Buffer 4'},
-          ['5'] = {'<Plug>(cokeline-focus-5)', 'Jump to Buffer 5'},
-          ['6'] = {'<Plug>(cokeline-focus-6)', 'Jump to Buffer 6'},
-          ['7'] = {'<Plug>(cokeline-focus-7)', 'Jump to Buffer 7'},
-          ['8'] = {'<Plug>(cokeline-focus-8)', 'Jump to Buffer 8'},
-          ['9'] = {'<Plug>(cokeline-focus-9)', 'Jump to Buffer 9'}, ]]
           ['1'] = {'<Cmd>BufferLineGoToBuffer 1<CR>', 'BufferLine - Jump to Buffer 1'},
           ['2'] = {'<Cmd>BufferLineGoToBuffer 2<CR>', 'BufferLine - Jump to Buffer 2'},
           ['3'] = {'<Cmd>BufferLineGoToBuffer 3<CR>', 'BufferLine - Jump to Buffer 3'},
@@ -110,19 +108,12 @@ if wkLoader.loaded then
           ['9'] = {'<Cmd>BufferLineGoToBuffer 9<CR>', 'BufferLine - Jump to Buffer 9'},
         },
 
-        --[[ d = {
-          name = 'Debug Adapter Commands',
-          b = {'<cmd>lua require("dap").toggle_breakpoint()<cr>', 'DAP - Toggle Breakpoint'},
-          c = {'<cmd>lua require("dap").continue()<cr>', 'DAP - Continue Execution'},
-          o = {'<cmd>lua require("dap").step_over()<cr>', 'DAP - Step Over'},
-          i = {'<cmd>lua require("dap").step_in()<cr>', 'DAP - Step Into'},
-          r = {'<cmd>lua require("dap").repl.open()<cr>', 'DAP - Open REPL'},
-        }, ]]
       }
     })
   end
 
 end
+
 -- Separate from Which-Key because of a bug with escaping the '\' in the command
 -- https://github.com/folke/which-key.nvim/issues/249
 vim.api.nvim_set_keymap('t','<ESC>', '<C-\\><C-N>', {noremap = true})

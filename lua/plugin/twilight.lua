@@ -10,7 +10,7 @@ M.config = function()
 
         twilightMod.module.setup {
             dimming = {
-                alpha = 0.25,
+                alpha = 0.5,
                 inactive = true,
             },
             context = 99,
