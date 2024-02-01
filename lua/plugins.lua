@@ -78,7 +78,7 @@ M.buildPluginTable = function()
     { "williamboman/mason-lspconfig.nvim", dependencies = "mason.nvim", event = "VeryLazy",  },
     { "neovim/nvim-lspconfig", init = function() require("plugin.mason").config() end, dependencies = "mason-lspconfig.nvim", event = "VeryLazy",  },
 
-    { 'windwp/nvim-autopairs', init = function() require('plugin.autopairs').config() end, dependencies = 'nvim-notify', event = "VeryLazy", }, -- Automically close parens, quotes in insert
+    --{ 'windwp/nvim-autopairs', init = function() require('plugin.autopairs').config() end, dependencies = 'nvim-notify', event = "VeryLazy", }, -- Automically close parens, quotes in insert
     { 'folke/trouble.nvim', init = function() require('plugin.trouble').config() end, dependencies = 'nvim-notify', event = "VeryLazy", },
     { 'gpanders/editorconfig.nvim', event = "VeryLazy" }, -- Makes nvim respect .editorconfig files
 
@@ -117,7 +117,8 @@ M.buildPluginTable = function()
   }
 
   local testPlugins = {
-    { 'echasnovski/mini.nvim', init = function() require('plugin.mini').config() end, after = 'nvim-notify' }
+    { 'echasnovski/mini.nvim', init = function() require('plugin.mini').config() end, after = 'nvim-notify' },
+    { 'Maxlufs/LargeFile.vim', init = function() require('plugin.largefile').config() end, after = 'nvim-notify'},
   }
 
   table.move(generalFunctionTweaks, 1, #generalFunctionTweaks, #dependencyTable+1, dependencyTable)

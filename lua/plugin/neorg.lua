@@ -24,6 +24,12 @@ M.config = function()
           },
         },
         ["core.summary"] = {},
+        ["core.export"] = {},
+        ["core.export.markdown"] = {
+            config = {
+                extensions = "all",
+            },
+        },
         -- ["core.tempus"] = {},
         -- ["core.ui.calendar"] = {},
       }

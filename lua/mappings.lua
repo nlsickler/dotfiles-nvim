@@ -33,6 +33,7 @@ if wkLoader.loaded then
       ['<S-l>'] = {'<cmd>BufferLineCycleNext<CR>', 'BufferLine - Next Tab'},
 
       ["<leader>BD"] = {':Bdelete!<CR>', 'bbye - Force close buffer'},
+      ["<leader>xx"] = {'<cmd>set filetype=<cr>', 'Disable highlight'},
 
       K = {':lua vim.lsp.buf.hover()<cr>', 'LSP - Hover Info'},
       g = {
@@ -54,12 +55,14 @@ if wkLoader.loaded then
         ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm - Toggle'},
         n = {
           name = "Global Neorg Commands",
+          c = {'<cmd>Neorg toggle-concealer', 'Neorg - Toggle Concealer' },
           i = {'<cmd>Neorg index<cr>', 'Neorg - Index'},
           n = {'<cmd>Neorg journal today<cr>', 'Neorg - Journal - Today'},
           t = {'<cmd>Neorg journal tomorrow<cr>', 'Neorg - Journal - Tomorrow'},
           y = {'<cmd>Neorg journal yesterday<cr>', 'Neorg - Journal - Yesterday'},
           q = {'<cmd>Neorg toc qflist<cr>', 'Neorg - Table of Contents QuickFix'},
           x = {'<cmd>Neorg return<cr>', 'Neorg - Return (close)'},
+          e = {'<cmd>Neorg export to-file ~/neorg-temp.md<cr>', 'Neorg - Markdown export to ~/neorg-temp.md'},
         },
         t = {
           name = "Telescope Commands",

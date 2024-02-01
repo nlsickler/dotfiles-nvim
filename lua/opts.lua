@@ -18,7 +18,7 @@ vim.opt.softtabstop = 4
 vim.opt.smartindent = true
 
 vim.cmd [[set list listchars=tab:→\ ,extends:⟫,precedes:⟪,nbsp:·,trail:⁐,space:⋅,eol:⁋]]
-vim.cmd [[set list]]
+-- vim.cmd [[set list]]
 
 vim.opt.scrolloff=4
 vim.opt.sidescrolloff=4
