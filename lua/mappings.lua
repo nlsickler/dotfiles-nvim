@@ -55,7 +55,7 @@ if wkLoader.loaded then
         ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm - Toggle'},
         n = {
           name = "Global Neorg Commands",
-          c = {'<cmd>Neorg toggle-concealer', 'Neorg - Toggle Concealer' },
+          c = {'<cmd>Neorg toggle-concealer<cr>', 'Neorg - Toggle Concealer' },
           i = {'<cmd>Neorg index<cr>', 'Neorg - Index'},
           n = {'<cmd>Neorg journal today<cr>', 'Neorg - Journal - Today'},
           t = {'<cmd>Neorg journal tomorrow<cr>', 'Neorg - Journal - Tomorrow'},
