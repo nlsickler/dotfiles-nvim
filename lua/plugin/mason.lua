@@ -23,8 +23,9 @@ M.config = function()
     mcMod.module.setup({
       ensure_installed = {
         "lua_ls",
-        "jdtls",
-        "omnisharp",
+        --"jdtls",
+        --"omnisharp",
+        "csharp_ls",
       },
       automatic_installation = true,
     })
@@ -50,6 +51,12 @@ M.config = function()
         }
       end,
 
+      ["csharp_ls"] = function ()
+        lcMod.module["csharp_ls"].setup {
+          root_dir = require('lspconfig/util').root_pattern("*.sln", "*.csproj", ".git")
+        }
+      end,
+
       ["lua_ls"] = function()
         lcMod.module["lua_ls"].setup {
           settings = {
@@ -59,6 +66,18 @@ M.config = function()
               },
             }
           }
+        }
+      end,
+
+      ["harper_ls"] = function()
+        lcMod.module["harper_ls"].setup {
+          root_dir = function() return require('lspconfig/util').find_git_ancestor(vim.fn.getcwd()) end,
+        }
+      end,
+
+      ["ast_grep"] = function()
+        lcMod.module["ast_grep"].setup {
+          root_dir = function() return require('lspconfig/util').find_git_ancestor(vim.fn.getcwd()) end,
         }
       end,
 

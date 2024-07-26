@@ -4,7 +4,7 @@ local M = {}
 
 M.config = function()
 
-  local queryMod = modLoader.loadModule('vim.treesitter.query')
+  --[[/*local queryMod = modLoader.loadModule('vim.treesitter.query')
 
   if queryMod.loaded then
 
@@ -16,7 +16,9 @@ M.config = function()
 
     queryMod.module.set("lua", 'folds', folds)
 
+
  end
+--]]
 end
 
 return M

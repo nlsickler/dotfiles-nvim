@@ -9,115 +9,115 @@ if wkLoader.loaded then
   vim.g.maplocalleader = ','
 
   if nil ~= wkMod then
-    wkMod.register({
-      ["<leader>"] = {'<nop>', 'NOOP'},
-      ["<localleader>"] = {'<nop>', 'NOOP'},
-    })
 
-    wkMod.register({
-      [";"] = { ":", {mode = "nv" }, "Remap ; to start a command" },
-      ["ghp"] = {'<Plug>(GitGutterPreviewHunk)', "GitGutter - Preview Diff Under Cursor"},
-      ["<C-N>"] = {'<cmd>Neotree toggle<CR>', 'NeoTree - Toggle'},
+    wkMod.add({
 
-      ["<C-H>"] = {'<C-W><C-H>', 'Switch split left'},
-      ["<C-J>"] = {'<C-W><C-J>', 'Switch split Down'},
-      ["<C-K>"] = {'<C-W><C-K>', 'Switch split Up'},
-      ["<C-L>"] = {'<C-W><C-L>', 'Switch split Right'},
+      -------------------------------------------------------
+      --- QUALITY OF LIFE COMMANDS
+      -------------------------------------------------------
 
-      ["<C-Left>"] = {'<cmd>vertical resize +3<CR>', 'Resize vertical split 3 columns'},
-      ["<C-Right>"] = {'<cmd>vertical resize -3<CR>', 'Resize vertical split 3 columns'},
-      ["<C-Up>"] = {'<cmd>resize +3<CR>', 'Resize split 3 columns'},
-      ["<C-Down>"] = {'<cmd>resize -3<CR>', 'Resize split 3 columns'},
+      {";", ":", desc = "Command Key", mode = "n"},
+      {"<C-N>", "<cmd>Neotree toggle<cr>", desc = "Open File Tree", mode = "n"},
+      {"\\", "<cmd>ToggleTerm<cr>", desc = "ToggleTerm", mode = "n"},
+      {"<ESC>", "<C-\\><C-N>", desc = "Exit Terminal Mode", mode = "t"},
+      {"<leader>xx", "<cmd>set filetype=<cr>", desc = "Disable Highlight", mode = "n"},
+      {"<leader>k", "<cmd>nohl<cr>", desc = "Disable Search Highlight", mode = "n"},
 
-      ['<S-h>'] = {'<cmd>BufferLineCyclePrev<CR>', 'BufferLine - Previous Tab'},
-      ['<S-l>'] = {'<cmd>BufferLineCycleNext<CR>', 'BufferLine - Next Tab'},
 
-      ["<leader>BD"] = {':Bdelete!<CR>', 'bbye - Force close buffer'},
-      ["<leader>xx"] = {'<cmd>set filetype=<cr>', 'Disable highlight'},
+      -------------------------------------------------------
+      --- SPLIT COMMANDS
+      -------------------------------------------------------
 
-      K = {':lua vim.lsp.buf.hover()<cr>', 'LSP - Hover Info'},
-      g = {
-        name = 'Go Commands',
-        d = {':lua vim.lsp.buf.definition()<cr>', 'LSP - Definition'},
-        D = {':lua vim.lsp.buf.declaration()<cr>', 'LSP - Declaration'},
-        i = {':lua vim.lsp.buf.implementation()<cr>', 'LSP - Implementation'},
-        r = {':lua vim.lsp.buf.references()<cr>', 'LSP - References'},
-        t = {':lua vim.lsp.buf.type_definition()<cr>', 'LSP - Type Def'},
-      },
+      {"<C-H>", "<C-W><C-H>", desc = "Switch Split Left", mode = "n"},
+      {"<C-J>", "<C-W><C-J>", desc = "Switch Split Down", mode = "n"},
+      {"<C-K>", "<C-W><C-K>", desc = "Switch Split Up", mode = "n"},
+      {"<C-L>", "<C-W><C-L>", desc = "Switch Split Right", mode = "n"},
+      {"<C-Right>", "<cmd>vertical resize +3<cr>", desc = "Increase Vert Split Size", mode = "n"},
+      {"<C-Left>", "<cmd>vertical resize -3<cr>", desc = "Decrease Vert Split Size", mode = "n"},
+      {"<C-Up>", "<cmd>resize -3<cr>", desc = "Decrease Horiz Split Size", mode = "n"},
+      {"<C-Down>", "<cmd>resize +3<cr>", desc = "Increase Horiz Split Size", mode = "n"},
 
-      ["<leader>"] = {
-        name = "Plugin Commands",
-        k = {'<cmd>nohl<cr>', 'Hide highlights'},
-        ["wm"] = {'<cmd>WindowsMaximize<cr>', 'Windows - Maximize Window'},
-        ["we"] = {'<cmd>WindowsEqualize<cr>', 'Windows - Equalize Windows'},
-        ["wt"] = {'<cmd>WindowsToggleAutowidth<cr>', 'Windows - Equalize Windows'},
-        ['u']  = {'<cmd>UndotreeToggle<cr>', 'Undotree - Toggle'},
-        ['\\'] = {'<cmd>ToggleTerm<cr>', 'ToggleTerm - Toggle'},
-        n = {
-          name = "Global Neorg Commands",
-          c = {'<cmd>Neorg toggle-concealer<cr>', 'Neorg - Toggle Concealer' },
-          i = {'<cmd>Neorg index<cr>', 'Neorg - Index'},
-          n = {'<cmd>Neorg journal today<cr>', 'Neorg - Journal - Today'},
-          t = {'<cmd>Neorg journal tomorrow<cr>', 'Neorg - Journal - Tomorrow'},
-          y = {'<cmd>Neorg journal yesterday<cr>', 'Neorg - Journal - Yesterday'},
-          q = {'<cmd>Neorg toc qflist<cr>', 'Neorg - Table of Contents QuickFix'},
-          x = {'<cmd>Neorg return<cr>', 'Neorg - Return (close)'},
-          e = {'<cmd>Neorg export to-file ~/neorg-temp.md<cr>', 'Neorg - Markdown export to ~/neorg-temp.md'},
-        },
-        t = {
-          name = "Telescope Commands",
-          f = {'<cmd>lua require(\'telescope.builtin\').find_files()<cr>', 'Telescope - Files'},
-          s = {'<cmd>lua require(\'telescope.builtin\').live_grep()<cr>', 'Telescope - Grep'},
-          h = {'<cmd>lua require(\'telescope.builtin\').help_tags()<cr>', 'Telescope - Help'},
-          b = {'<cmd>lua require(\'telescope.builtin\').builtin()<cr>', 'Telescope - Builtins'},
-          j = {'<cmd>lua require(\'telescope.builtin\').jumplist()<cr>', 'Telescope - Jumplist'},
-          n = {'<cmd>lua require(\'telescope\').extensions.notify.notify()<cr>', 'Telescope - Notify'},
-          t = {"<cmd>TroubleToggle<cr>", 'Trouble - Toggle'},
-          -- w = {"<cmd>Twilight<cr>", "Twilight - Toggle"},
-          l = {
-            name = 'LSP Commands',
-            y = {'<cmd>lua require(\'telescope.builtin\').lsp_document_symbols()<cr>', 'Telescope - LSP Document Symbols'},
-            Y = {'<cmd>lua require(\'telescope.builtin\').lsp_workspace_symbols()<cr>', 'Telescope - LSP Workspace Symbols'},
-            i = {'<cmd>lua require(\'telescope.builtin\').lsp_implementations()<cr>', 'Telescope - LSP Implementations'},
-            d = {'<cmd>lua require(\'telescope.builtin\').lsp_definitions()<cr>', 'Telescope - LSP Definitions'},
-            t = {'<cmd>lua require(\'telescope.builtin\').lsp_type_definitions()<cr>', 'Telescope - LSP Type Definitions'},
-            ["?"] = {'<cmd>lua require(\'telescope.builtin\').diagnostics()<cr>', 'Telescope - LSP Workspace Diagnostics'},
-          },
-          g = {
-            name = "Telescope - Git",
-            c = {'<cmd>lua require(\'telescope.builtin\').git_commits()<cr>', 'Telescope - Git Commits'},
-            b = {'<cmd>lua require(\'telescope.builtin\').git_branches()<cr>', 'Telescope - Git Branches'},
-            s = {'<cmd>lua require(\'telescope.builtin\').git_status()<cr>', 'Telescope - Git Status'},
-          }
-        }, --Telescope Commands
-        l = {
-          name = "LSP - Commands",
-          a = {':lua vim.lsp.buf.code_action()<cr>', 'LSP - Code Actions'},
-          r = {':lua vim.lsp.buf.rename()<cr>', 'LSP - Rename'}
-        }, -- LSP Commands
-        b = {
-          name = 'Buffer Commands',
-          d = {'<cmd>lua MiniBufremove.delete(0, true)<CR>', 'Mini - Close Buffer'},
-          s = {'<cmd>BufferLineSortByDirectory<CR>', 'BufferLine - Sort Buffers'},
-          m = {'<cmd>JABSOpen<CR>', 'JABS - Manage buffers'},
-          ['1'] = {'<Cmd>BufferLineGoToBuffer 1<CR>', 'BufferLine - Jump to Buffer 1'},
-          ['2'] = {'<Cmd>BufferLineGoToBuffer 2<CR>', 'BufferLine - Jump to Buffer 2'},
-          ['3'] = {'<Cmd>BufferLineGoToBuffer 3<CR>', 'BufferLine - Jump to Buffer 3'},
-          ['4'] = {'<Cmd>BufferLineGoToBuffer 4<CR>', 'BufferLine - Jump to Buffer 4'},
-          ['5'] = {'<Cmd>BufferLineGoToBuffer 5<CR>', 'BufferLine - Jump to Buffer 5'},
-          ['6'] = {'<Cmd>BufferLineGoToBuffer 6<CR>', 'BufferLine - Jump to Buffer 6'},
-          ['7'] = {'<Cmd>BufferLineGoToBuffer 7<CR>', 'BufferLine - Jump to Buffer 7'},
-          ['8'] = {'<Cmd>BufferLineGoToBuffer 8<CR>', 'BufferLine - Jump to Buffer 8'},
-          ['9'] = {'<Cmd>BufferLineGoToBuffer 9<CR>', 'BufferLine - Jump to Buffer 9'},
-        },
+      -------------------------------------------------------
+      --- WINDOW MANAGEMENT COMMANDS
+      -------------------------------------------------------
 
-      }
+      {"<leader>w", group = "Window Commands"},
+      {"<leader>wm", "<cmd>WindowsMaximize<cr>", desc = "Maximize Window", mode = "n"},
+      {"<leader>we", "<cmd>WindowsEqualize<cr>", desc = "Maximize Window", mode = "n"},
+
+      -------------------------------------------------------
+      --- BUFFER COMMANDS
+      -------------------------------------------------------
+
+      {"<leader>b", group = "Buffer Commands"},
+      {"<leader>bd", "<cmd>lua MiniBufremove.delete(0,true)<cr>", desc = "Close current buffer", mode = "n"},
+      {"<leader>bs", "<cmd>BufferLineSortByDirectory<cr>", desc = "Sort open buffers", mode = "n"},
+      {"<leader>bm", "<cmd>JABSOpen<cr>", desc = "Open Buffer Management Window", mode = "n"},
+      {"<leader>b1", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "Jump to Buffer", mode = "n"},
+      {"<leader>b2", "<cmd>BufferLineGoToBuffer 2<cr>", desc = "Jump to Buffer", mode = "n"},
+      {"<leader>b3", "<cmd>BufferLineGoToBuffer 3<cr>", desc = "Jump to Buffer", mode = "n"},
+      {"<leader>b4", "<cmd>BufferLineGoToBuffer 4<cr>", desc = "Jump to Buffer", mode = "n"},
+      {"<leader>b5", "<cmd>BufferLineGoToBuffer 5<cr>", desc = "Jump to Buffer", mode = "n"},
+      {"<leader>b6", "<cmd>BufferLineGoToBuffer 6<cr>", desc = "Jump to Buffer", mode = "n"},
+      {"<leader>b7", "<cmd>BufferLineGoToBuffer 7<cr>", desc = "Jump to Buffer", mode = "n"},
+      {"<leader>b8", "<cmd>BufferLineGoToBuffer 8<cr>", desc = "Jump to Buffer", mode = "n"},
+      {"<leader>b9", "<cmd>BufferLineGoToBuffer 9<cr>", desc = "Jump to Buffer", mode = "n"},
+
+      -------------------------------------------------------
+      --- NEORG COMMANDS
+      -------------------------------------------------------
+
+      {"<leader>n", group = "Notes Commands"},
+      {"<leader>nc", "<cmd>Neorg toggle-concealer<cr>", desc = "Toggle Concealer", mode = "n"},
+      {"<leader>nn", "<cmd>Neorg journal today<cr>", desc = "Journal - Today", mode = "n"},
+      {"<leader>ny", "<cmd>Neorg journal yesterday<cr>", desc = "Journal - Yesterday", mode = "n"},
+      {"<leader>nx", "<cmd>Neorg return<cr>", desc = "Close Note", mode = "n"},
+      {"<leader>ne", "<cmd>Neorg export to-file ~/neorg-temp.md<cr>", desc = "Export temp note", mode = "n"},
+
+      -------------------------------------------------------
+      --- LSP COMMANDS
+      -------------------------------------------------------
+
+      -- "Go" Commands
+      {"g", group = "Goto Commands"},
+      {"gd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Goto Definition", mode = "n"},
+      {"gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "Goto Definition", mode = "n"},
+      {"gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "Goto Definition", mode = "n"},
+      {"gr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "Goto Definition", mode = "n"},
+      {"gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", desc = "Goto Definition", mode = "n"},
+
+      -- Actions
+      {"<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Actions", mode = "n"},
+      {"<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", mode = "n"},
+
+      -------------------------------------------------------
+      --- TELESCOPE COMMANDS
+      -------------------------------------------------------
+
+      -- General Displays (2 character)
+      {"<leader>t", group = "Telescope"},
+      {"<leader>tl", group = "LSP Commands"},
+      {"<leader>tg", group = "Git Commands"},
+      {"<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Find Files", mode = "n"},
+      {"<leader>ts", "<cmd>Telescope live_grep<cr>", desc = "Search File Contents", mode = "n"},
+      {"<leader>th", "<cmd>Telescope help_tags<cr>", desc = "Search Help Pages", mode = "n"},
+      {"<leader>tn", "<cmd>lua require(\'telescope\').extensions.notify.notify()<cr>", desc = "Notifications", mode = "n"},
+
+      -- LSP Displays
+      {"<leader>tly", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Symbols (Doc)", mode = "n"},
+      {"<leader>tlY", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Symbols (Workspace)", mode = "n"},
+      {"<leader>tli", "<cmd>Telescope lsp_implementations<cr>", desc = "Implementations", mode = "n"},
+      {"<leader>tld", "<cmd>Telescope lsp_definitions<cr>", desc = "Definitions", mode = "n"},
+      {"<leader>tlt", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Type Defs", mode = "n"},
+      {"<leader>tlR", "<cmd>Telescope lsp_references<cr>", desc = "References", mode = "n"},
+
+      -- Git Displays
+      {"<leader>tgc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits", mode = "n"},
+      {"<leader>tgb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches", mode = "n"},
+      {"<leader>tgs", "<cmd>Telescope git_status<cr>", desc = "Git Status", mode = "n"},
+
+
     })
   end
 
 end
-
--- Separate from Which-Key because of a bug with escaping the '\' in the command
--- https://github.com/folke/which-key.nvim/issues/249
-vim.api.nvim_set_keymap('t','<ESC>', '<C-\\><C-N>', {noremap = true})
-

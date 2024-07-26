@@ -1,11 +1,14 @@
 -- Searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
 
 -- Editor Settings
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = false
+vim.opt.autoread = true
 
 -- Wrapping
 vim.opt.wrap = false
@@ -16,18 +19,18 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.smartindent = true
+--vim.opt.smarttab = true
 
 vim.cmd [[set list listchars=tab:→\ ,extends:⟫,precedes:⟪,nbsp:·,trail:⁐,space:⋅,eol:⁋]]
--- vim.cmd [[set list]]
 
 vim.opt.scrolloff=4
 vim.opt.sidescrolloff=4
 
 --Mouse Settings
-vim.opt.hlsearch = true
 vim.opt.mouse = 'a'
 -- vim.opt.mousemodel = 'extend'
 vim.opt.ruler = true
+vim.opt.wildmenu = true
 
 -- Window Settings
 vim.o.winwidth = 20
@@ -55,7 +58,7 @@ vim.opt.showmode = false
 vim.opt.updatetime = 300 --faster completion/highlighting 4000ms default
 vim.opt.history = 50
 vim.opt.helplang = 'en'
--- vim.opt.lazyredraw = true -- Prevents redrawing the screen while executing macros :redraw will force an update
+vim.opt.lazyredraw = true -- Prevents redrawing the screen while executing macros :redraw will force an update
 vim.opt.autochdir = false
 vim.opt.spell = false
 vim.opt.belloff = 'all'
