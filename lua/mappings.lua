@@ -48,7 +48,6 @@ if wkLoader.loaded then
 
       {"<leader>b", group = "Buffer Commands"},
       {"<leader>bs", "<cmd>BufferLineSortByDirectory<cr>", desc = "Sort open buffers", mode = "n"},
-      {"<leader>bm", "<cmd>JABSOpen<cr>", desc = "Open Buffer Management Window", mode = "n"},
       {"<leader>b1", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "Jump to Buffer", mode = "n"},
       {"<leader>b2", "<cmd>BufferLineGoToBuffer 2<cr>", desc = "Jump to Buffer", mode = "n"},
       {"<leader>b3", "<cmd>BufferLineGoToBuffer 3<cr>", desc = "Jump to Buffer", mode = "n"},
@@ -119,6 +118,7 @@ if wkLoader.loaded then
       {"<leader>sw", function() require("snacks").words.jump() end, desc = "Jump to Next Word"},
 
       -- Pickers
+      {"<leader>bm", function() require("snacks").picker.buffers() end, desc = "Buffers", mode = "n"},
       {"<leader>sb", function() require("snacks").picker.buffers() end, desc = "Buffers", mode = "n"},
       {"<leader>sf", function() require("snacks").picker.smart() end, desc = "Smart Files", mode = "n"},
       {"<leader>ss", function() require("snacks").picker.grep() end, desc = "Search in Files", mode = "n"},
@@ -129,6 +129,7 @@ if wkLoader.loaded then
 
 
       {"<leader>sg", group = "Snack: Git Commands"},
+      {"<leader>sgb", function() require("snacks").picker.git_branches() end, desc = "Git Branches"},
       {"<leader>sgs", function() require("snacks").picker.git_status() end, desc = "Git Status"},
       {"<leader>sgS", function() require("snacks").picker.git_status() end, desc = "Git Stash"},
       {"<leader>sgl", function() require("snacks").picker.git_log() end, desc = "Git Log"},

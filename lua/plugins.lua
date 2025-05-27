@@ -34,10 +34,8 @@ M.buildPluginTable = function()
   local generalFunctionTweaks = {
     "sitiom/nvim-numbertoggle", -- Automatically toggles relative and absoute numbers
     { "folke/which-key.nvim", init = function() require('plugin.whichkey').config() end, lazy = false }, -- Hotkey guide
-    -- "psliwka/vim-smoothie", -- Smooth Scrolling
     "jghauser/mkdir.nvim", -- Makes missing folders on file save
     { 'zakharykaplan/nvim-retrail', init = function() require('plugin.retrail').config() end, event = "VeryLazy" }, -- Removes trailing spaces
-    -- { 'lukas-reineke/indent-blankline.nvim', init = function() require('plugin.indent-blankline').config() end }, --Indent lines on lhs
   }
 
   local graphicalEnhance = {
@@ -48,19 +46,12 @@ M.buildPluginTable = function()
     { "kylechui/nvim-surround", init = function() require("nvim-surround").setup() end }, -- Vim-Surround, but rewritten for neovim (supporting TreeSitter)
     { 'nvim-lualine/lualine.nvim', init = function() require('plugin.lualine').config() end }, -- Powerline/Airline alterative for bottom status bar
     { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, init = function() require('plugin.windows').config() end }, -- Automatically resizes windows
-
-    -- { 'chentoast/marks.nvim', init = function() require('marks').setup() end }, -- Add marks to the sign column
-    -- { 'akinsho/toggleterm.nvim', init = function() require('plugin.toggleterm').config() end, dependencies = 'nvim-notify' }, -- Toggleable terminal
-    -- { 'folke/twilight.nvim', init = function() require('plugin.twilight').config() end, dependencies = {'nvim-notify', 'nvim-treesitter' } }, -- Allows disabling color coding outside of current scope (using treesitter)
   }
 
   local newFunctionality = {
     { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'}, lazy = false }, -- Fuzzy completion
     { 'mhinz/vim-startify', init = function() require('plugin.startify').config() end, dependencies = 'nvim-notify', lazy = false }, -- Dashboard style plugin for the start screen
     { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, init = function() require('plugin.neotree').config() end, lazy = false }, -- File explorer
-    -- { 'matbme/JABS.nvim', init = function() require('jabs').setup() end, event = "VeryLazy" }, -- Just Another Buffer Switcher - shows buffers in a pop-up allowing them to be switched, deleted, etc.
-
-    -- {'mbbill/undotree', cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" } }, -- Undo visualization (Requires a vim install)
   }
 
   local gitExtensions = {
@@ -118,7 +109,6 @@ M.buildPluginTable = function()
 
   local testPlugins = {
     { 'echasnovski/mini.nvim', init = function() require('plugin.mini').config() end, after = 'nvim-notify' }, -- Cursorword, Buffer Removal, Commenting
-    -- { 'Maxlufs/LargeFile.vim', init = function() require('plugin.largefile').config() end, after = 'nvim-notify'},
 
     { "zbirenbaum/copilot.lua", init = function() require("plugin.copilot").config() end, event = "VeryLazy"}, -- Lua native copilot.vim implementation
     { "folke/snacks.nvim", init = function() require("plugin.snacks").config() end, priority = 1000, lazy = false }, -- Collection of lots of QoL extensions with the potential to replace a lot of other plugins
