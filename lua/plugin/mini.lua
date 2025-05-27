@@ -4,17 +4,17 @@ local M = {}
 
 M.config = function()
 
-  local cw = modLoader.loadModule('mini.cursorword')
+  -- local cw = modLoader.loadModule('mini.cursorword')
 
-  if cw.loaded then
-    cw.module.setup()
-  end
+  -- if cw.loaded then
+    -- cw.module.setup()
+  -- end
 
-  local bdel = modLoader.loadModule('mini.bufremove')
+  -- local bdel = modLoader.loadModule('mini.bufremove')
 
-  if bdel.loaded then
-    bdel.module.setup()
-  end
+  -- if bdel.loaded then
+  --   bdel.module.setup()
+  -- end
 
   local comm = modLoader.loadModule('mini.comment')
 

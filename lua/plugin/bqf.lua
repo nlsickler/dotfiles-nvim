@@ -8,9 +8,7 @@ M.config = function()
 
     if bqfMod.loaded then
 
-        bqfMod.module.setup({
-
-        })
+        bqfMod.module.setup()
 
     end
 
