@@ -113,6 +113,7 @@ M.buildPluginTable = function()
 
     { "zbirenbaum/copilot.lua", init = function() require("plugin.copilot").config() end, event = "VeryLazy"}, -- Lua native copilot.vim implementation
     { "folke/snacks.nvim", init = function() require("plugin.snacks").config() end, priority = 1000, lazy = false }, -- Collection of lots of QoL extensions with the potential to replace a lot of other plugins
+    { "folke/persistence.nvim", init = function() require("plugin.persistence").config() end }
   }
 
   table.move(generalFunctionTweaks, 1, #generalFunctionTweaks, #dependencyTable+1, dependencyTable)
