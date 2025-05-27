@@ -49,9 +49,10 @@ M.buildPluginTable = function()
   }
 
   local newFunctionality = {
-    { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'}, lazy = false }, -- Fuzzy completion
-    { 'mhinz/vim-startify', init = function() require('plugin.startify').config() end, dependencies = 'nvim-notify', lazy = false }, -- Dashboard style plugin for the start screen
-    { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, init = function() require('plugin.neotree').config() end, lazy = false }, -- File explorer
+    -- { 'mhinz/vim-startify', init = function() require('plugin.startify').config() end, dependencies = 'nvim-notify', lazy = false }, -- Dashboard style plugin for the start screen
+
+    -- { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'}, lazy = false }, -- Fuzzy completion
+    -- { 'nvim-neo-tree/neo-tree.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }, init = function() require('plugin.neotree').config() end, lazy = false }, -- File explorer
   }
 
   local gitExtensions = {

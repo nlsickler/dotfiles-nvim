@@ -59,17 +59,6 @@ if wkLoader.loaded then
       {"<leader>b9", "<cmd>BufferLineGoToBuffer 9<cr>", desc = "Jump to Buffer", mode = "n"},
 
       -------------------------------------------------------
-      --- NEORG COMMANDS
-      -------------------------------------------------------
-
-      {"<leader>n", group = "Notes Commands"},
-      {"<leader>nc", "<cmd>Neorg toggle-concealer<cr>", desc = "Toggle Concealer", mode = "n"},
-      {"<leader>nn", "<cmd>Neorg journal today<cr>", desc = "Journal - Today", mode = "n"},
-      {"<leader>ny", "<cmd>Neorg journal yesterday<cr>", desc = "Journal - Yesterday", mode = "n"},
-      {"<leader>nx", "<cmd>Neorg return<cr>", desc = "Close Note", mode = "n"},
-      {"<leader>ne", "<cmd>Neorg export to-file ~/neorg-temp.md<cr>", desc = "Export temp note", mode = "n"},
-
-      -------------------------------------------------------
       --- LSP COMMANDS
       -------------------------------------------------------
 
@@ -86,23 +75,6 @@ if wkLoader.loaded then
       {"<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", mode = "n"},
 
       -------------------------------------------------------
-      --- TELESCOPE COMMANDS
-      -------------------------------------------------------
-
-      -- General Displays (2 character)
-      {"<leader>t", group = "Telescope"},
-      {"<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Find Files", mode = "n"},
-      {"<leader>ts", "<cmd>Telescope live_grep<cr>", desc = "Search File Contents", mode = "n"},
-      {"<leader>th", "<cmd>Telescope help_tags<cr>", desc = "Search Help Pages", mode = "n"},
-      {"<leader>tn", "<cmd>lua require(\'telescope\').extensions.notify.notify()<cr>", desc = "Notifications", mode = "n"},
-
-      -- Git Displays
-      {"<leader>tg", group = "Tele: Git Commands"},
-      {"<leader>tgc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits", mode = "n"},
-      {"<leader>tgb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches", mode = "n"},
-      {"<leader>tgs", "<cmd>Telescope git_status<cr>", desc = "Git Status", mode = "n"},
-
-      -------------------------------------------------------
       --- SNACK COMMANDS
       -------------------------------------------------------
 
@@ -115,7 +87,8 @@ if wkLoader.loaded then
       {"<leader>s", group = "Snack"},
       {"<leader>sl", function() require("snacks").lazygit() end, desc = "LazyGit"},
       {"<leader>sS", function() require("snacks").scratch() end, desc = "Scratch buffer", mode = "n"},
-      {"<leader>sw", function() require("snacks").words.jump() end, desc = "Jump to Next Word"},
+      {"]w", function() require("snacks").words.jump(1, true) end, desc = "Jump to Next Word"},
+      {"[w", function() require("snacks").words.jump(-1, true) end, desc = "Jump to Next Word"},
 
       -- Pickers
       {"<leader>bm", function() require("snacks").picker.buffers() end, desc = "Buffers", mode = "n"},
@@ -124,9 +97,9 @@ if wkLoader.loaded then
       {"<leader>ss", function() require("snacks").picker.grep() end, desc = "Search in Files", mode = "n"},
       {"<leader>sh", function() require("snacks").picker.help() end, desc = "Help", mode = "n"},
       {"<leader>sk", function() require("snacks").picker.keymaps() end, desc = "Keymaps", mode = "n"},
+      {"<leader>sn", function() require("snacks").picker.notifications() end, desc = "Buffers", mode = "n"},
       {"<leader>sp", function() require("snacks").picker.projects() end, desc = "Projects", mode = "n"},
       {"<leader>sP", function() require("snacks").picker.spelling() end, desc = "Spelling", mode = "n"},
-
 
       {"<leader>sg", group = "Snack: Git Commands"},
       {"<leader>sgb", function() require("snacks").picker.git_branches() end, desc = "Git Branches"},
