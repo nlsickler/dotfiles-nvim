@@ -26,6 +26,9 @@ M.config = function()
       templates = {
         folder = "templates"
       },
+      ui = {
+        enable = false,
+      },
     })
 
   end
