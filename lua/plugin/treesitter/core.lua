@@ -61,7 +61,7 @@ M.config = function()
       }
     }
 
-    M.loadLanguageSettings('lua')
+    -- M.loadLanguageSettings('lua')
     M.loadLanguageSettings('c_sharp')
     M.loadLanguageSettings('jdtls')
   end
