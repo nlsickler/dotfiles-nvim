@@ -5,14 +5,21 @@ local M = {}
 M.config = function()
 
   local cp = modLoader.loadModule("copilot")
-  local cpPanel = modLoader.loadModule("copilot.panel")
-  local cpSuggest = modLoader.loadModule("copilot.suggestion")
+  local cpCmp = modLoader.loadModule("copilot_cmp")
 
-  if cp.loaded then
+  --[[ if cp.loaded then
     cp.module.setup({
-
+      suggestion = { enabled = false },
+      panel = { enabled = false },
     })
   end
+
+  -- Adds copilot suggestions to nvim-cmp for completion
+  if cpCmp.loaded then
+    cpCmp.module.setup({
+
+    })
+  end ]]
 
 end
 

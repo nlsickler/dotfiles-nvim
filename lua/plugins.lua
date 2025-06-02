@@ -82,7 +82,12 @@ M.buildPluginTable = function()
     -- { "mfussenegger/nvim-dap", init = function() require("plugin.dap").config() end, dependencies = "nvim-notify", event = "VeryLazy", },
 
     -- AI
-    { "zbirenbaum/copilot.lua", init = function() require("plugin.copilot").config() end, event = "VeryLazy"}, -- Lua native copilot.vim implementation
+    -- { "zbirenbaum/copilot.lua", dependencies = "copilot-cmp", event = "VeryLazy"}, -- Lua native copilot.vim implementation
+    -- { "zbirenbaum/copilot-cmp", init = function() require("plugin.copilot").config() end, event = "VeryLazy"}, -- Routes copilot.lua suggestions through nvim-cmp
+    -- { "github/copilot.vim" }, -- Vimscript Copilot Plugin - Use ONLY if copilot.lua is disabled
+
+    -- TODO: Brings an editor and agentic mode into VIM.  Need to review auth practices and data more deeply before enabling.  Configuration is also a concern
+    -- { "olimorris/codecompanion.nvim", dependencies = { "zbirenbaum/copilot.lua", "nvim-lua/plenary.vim", "nvim-treesitter/nvim-treesitter" }, init = function() require("plugin.codeCompanion").config() end, event = "VeryLazy" },
 
   }
 
@@ -118,6 +123,9 @@ M.buildPluginTable = function()
   }
 
   local testPlugins = {
+    { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, event = "VeryLazy", opts = {} },
+    { "rafamadriz/friendly-snippets" },
+    { "epwalsh/obsidian.nvim", version = "*", lazy = true, ft = "markdown", dependencies = { "nvim-lua/plenary.nvim", }, init = function() require("plugin.obsidian").config() end }
   }
 
   table.move(generalFunctionTweaks, 1, #generalFunctionTweaks, #dependencyTable+1, dependencyTable)

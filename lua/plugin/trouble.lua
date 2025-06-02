@@ -7,8 +7,11 @@ M.config = function()
 
   if troubleMod.loaded then
     troubleMod.module.setup({
-      position = 'right',
-      width = 50,
+      win = {
+        type = "split",
+        position = "right",
+        size = 50,
+      },
     })
 
   end
