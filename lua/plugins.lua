@@ -125,7 +125,7 @@ M.buildPluginTable = function()
   local testPlugins = {
     { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, event = "VeryLazy", opts = {} },
     { "rafamadriz/friendly-snippets" },
-    { "epwalsh/obsidian.nvim", version = "*", lazy = true, ft = "markdown", dependencies = { "nvim-lua/plenary.nvim", }, init = function() require("plugin.obsidian").config() end }
+    -- { "epwalsh/obsidian.nvim", version = "*", lazy = true, ft = "markdown", dependencies = { "nvim-lua/plenary.nvim", }, init = function() require("plugin.obsidian").config() end }
   }
 
   table.move(generalFunctionTweaks, 1, #generalFunctionTweaks, #dependencyTable+1, dependencyTable)

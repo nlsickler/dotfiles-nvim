@@ -15,7 +15,9 @@ M.config = function()
 
     -- Treesitter configuration
     treesitterConf.module.setup {
-      ensure_installed = "all",
+      ensure_installed = {
+        "c", "cpp", "python", "lua", "json", "yaml", "bash", "vim", "javascript", "typescript", "html", "css", "markdown", "toml", "rust", "go", "java", "c_sharp"
+      },
 
       -- Install languages synchronously (only applied to `ensure_installed`)
       sync_install = false,
