@@ -79,6 +79,7 @@ M.buildPluginTable = function()
     -- Editor Enhancements
     { "gpanders/editorconfig.nvim", event = "VeryLazy" }, -- Makes nvim respect .editorconfig files
     { "numToStr/Comment.nvim", init = function() require("plugin.comment").config() end, after = "nvim-notify", event = "VeryLazy" },
+    { 'moevis/base64.nvim' },
     -- { "mfussenegger/nvim-dap", init = function() require("plugin.dap").config() end, dependencies = "nvim-notify", event = "VeryLazy", },
 
     -- AI
