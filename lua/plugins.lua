@@ -41,9 +41,9 @@ M.buildPluginTable = function()
   local graphicalEnhance = {
     { "rcarriga/nvim-notify", init = function() require("plugin.notify").config() end }, -- Notification framework
     { "akinsho/bufferline.nvim", init = function() require("plugin.bufferline").config() end, dependencies = "nvim-notify", requires = "kyazdani42/nvim-web-devicons", lazy = false }, -- Bufferline
-    { "kevinhwang91/nvim-bqf", init = function() require("plugin.bqf").config() end, dependencies = {"nvim-notify", "nvim-treesitter" } }, -- Enhances the quickfix menu with previews, treesitter, and more
+    { "kevinhwang91/nvim-bqf", init = function() require("plugin.bqf").config() end, dependencies = {"nvim-notify" } }, -- Enhances the quickfix menu with previews and more
     { "ryanoasis/vim-devicons" }, -- Adds git icons to NERDTree, lightline, vim-startify, etc
-    { "kylechui/nvim-surround", init = function() require("nvim-surround").setup() end }, -- Vim-Surround, but rewritten for neovim (supporting TreeSitter)
+    { "kylechui/nvim-surround", init = function() require("nvim-surround").setup() end }, -- Vim-Surround, but rewritten for neovim
     { "nvim-lualine/lualine.nvim", init = function() require("plugin.lualine").config() end }, -- Powerline/Airline alterative for bottom status bar
     { "anuvyklack/windows.nvim", requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, init = function() require("plugin.windows").config() end }, -- Automatically resizes windows
   }
@@ -51,10 +51,6 @@ M.buildPluginTable = function()
   local newFunctionality = {
     { "folke/snacks.nvim", init = function() require("plugin.snacks").config() end, priority = 1000, lazy = false }, -- Collection of lots of QoL extensions with the potential to replace a lot of other plugins
     { "folke/persistence.nvim", init = function() require("plugin.persistence").config() end }
-
-    -- { "mhinz/vim-startify", init = function() require("plugin.startify").config() end, dependencies = "nvim-notify", lazy = false }, -- Dashboard style plugin for the start screen
-    -- { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim"}, lazy = false }, -- Fuzzy completion
-    -- { "nvim-neo-tree/neo-tree.nvim", requires = {"nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", "MunifTanjim/nui.nvim" }, init = function() require("plugin.neotree").config() end, lazy = false }, -- File explorer
   }
 
   local gitExtensions = {
@@ -63,11 +59,6 @@ M.buildPluginTable = function()
   }
 
   local programmingFunctions = {
-    -- TreeSitter
-    { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", dependencies = "nvim-notify", event = "VeryLazy", }, -- Core configuration moved to textobjects since they are configured together
-    { "nvim-treesitter/nvim-treesitter-textobjects", init = function() require("plugin.treesitter.core").config() end, dependencies = "nvim-treesitter", event = "VeryLazy",},
-    { "nvim-treesitter/nvim-treesitter-context", init = function() require("treesitter-context").setup() end, dependencies = "nvim-treesitter", event = "VeryLazy", },
-
     -- LSP
     { "williamboman/mason.nvim", build = ":MasonUpdate" }, -- LSP Management
     { "williamboman/mason-lspconfig.nvim", dependencies = "mason.nvim", event = "VeryLazy",  }, -- Mason + LSP Config integration
@@ -80,16 +71,6 @@ M.buildPluginTable = function()
     { "gpanders/editorconfig.nvim", event = "VeryLazy" }, -- Makes nvim respect .editorconfig files
     { "numToStr/Comment.nvim", init = function() require("plugin.comment").config() end, after = "nvim-notify", event = "VeryLazy" },
     { 'moevis/base64.nvim' },
-    -- { "mfussenegger/nvim-dap", init = function() require("plugin.dap").config() end, dependencies = "nvim-notify", event = "VeryLazy", },
-
-    -- AI
-    -- { "zbirenbaum/copilot.lua", dependencies = "copilot-cmp", event = "VeryLazy"}, -- Lua native copilot.vim implementation
-    -- { "zbirenbaum/copilot-cmp", init = function() require("plugin.copilot").config() end, event = "VeryLazy"}, -- Routes copilot.lua suggestions through nvim-cmp
-    -- { "github/copilot.vim" }, -- Vimscript Copilot Plugin - Use ONLY if copilot.lua is disabled
-
-    -- TODO: Brings an editor and agentic mode into VIM.  Need to review auth practices and data more deeply before enabling.  Configuration is also a concern
-    -- { "olimorris/codecompanion.nvim", dependencies = { "zbirenbaum/copilot.lua", "nvim-lua/plenary.vim", "nvim-treesitter/nvim-treesitter" }, init = function() require("plugin.codeCompanion").config() end, event = "VeryLazy" },
-
   }
 
   local codeCompletion = {

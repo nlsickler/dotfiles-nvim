@@ -70,10 +70,10 @@ vim.opt.background = 'dark'
 
 -- Help Tags: shell-powershell
 -- vim.cmd [[set shell=\"C:/Program\ Files/PowerShell/7/pwsh.exe\"]] -- This works but is machine specific
-vim.opt.shell = 'pwsh'
-vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- vim.opt.shell = 'pwsh'
+-- vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+-- vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 vim.cmd([[set shellquote= shellxquote=]])
 vim.cmd([[set guifont=LiterationMono\ NF:h14]])
 
